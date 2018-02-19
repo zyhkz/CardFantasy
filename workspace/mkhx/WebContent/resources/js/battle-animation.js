@@ -1354,7 +1354,7 @@ var Animater = function() {
     ];
     this.selfUsedSkills = [
         '不动', '脱困', '群体脱困', '法力反射', '花族秘术', '冰甲', '水流护甲', '闪避', '守护', '魔神之甲', '灵巧', '灵魂禁锢', '闭月',
-        '王国之盾', '森林之盾', '蛮荒之盾', '地狱之盾', '弱点攻击', '无效', '圣盾', '不屈', '圣炎', '斩杀', '双斩', '送葬之刃', '逃跑', '灵魂封禁',
+        '王国之盾', '森林之盾', '蛮荒之盾', '地狱之盾', '弱点攻击', '无效', '圣盾', '不屈', '圣炎', '斩杀', '双斩', '送葬之刃', '逃跑', '灵魂禁封',
         '镜面装甲', '镜面', '阿拉希血统', '神威', '月之守护', '洪荒之术', '冰神附体', '三千世界', '神魔之甲', '亮银', '龙胆', '王之守护', '神之守护', '无双'
     ];
     this.__useSkill = function(data) {
@@ -1410,7 +1410,7 @@ var Animater = function() {
         } else if (skill == '传送' || skill == '咆哮') {
             this.flyImage({ fileName: 'redcross.png', width: 24, height: 24, text: skill, },
                     attacker, defenders, settings.skillDuration);
-        } else if (skill == '魔力法阵' || skill == '魔力印记') {
+        } else if (skill == '魔力法阵' || skill == '魔力印记' || skill == '东风') {
             this.flyImage({ fileName: 'hexagram.png', width: 24, height: 24, text: skill, },
                     attacker, defenders, settings.skillDuration);
         } else if (skill == '闪光弹' || skill == '致盲') {
@@ -1441,7 +1441,7 @@ var Animater = function() {
         } else if (skill == '自爆') {
             this.flyImage({ fileName: 'explode.png', width: 48, height: 48, text: skill },
                     attacker, defenders, settings.skillDuration);
-        } else if (skill == '虚弱' || skill == '战争怒吼') {
+        } else if (skill == '虚弱' || skill == '战争怒吼'|| skill == '常夏日光') {
             this.flyImage({ fileName: 'soften.png', width: 48, height: 48, text: skill },
                     attacker, defenders, settings.skillDuration);
         } else if (skill == '疾病' || skill == '瘟疫' || skill == '凋零真言' || skill == '凋零陷阱') {
@@ -1479,7 +1479,7 @@ var Animater = function() {
         } else if (skill == '火球' || skill == '火墙' || skill == '烈焰风暴' || skill == '修罗地火攻' || skill == '天怒') {
             this.flyImage({ fileName: 'fire.png', width: 24, height: 24, text: skill },
                     attacker, defenders, settings.skillDuration);
-        } else if (skill == '落雷' || skill == '连环闪电' || skill == '雷暴' || skill == '雷神降临') {
+        } else if (skill == '落雷' || skill == '连环闪电' || skill == '雷暴' || skill == '雷神降临' || skill=='雷霆一击' || skill=='觉醒狼顾') {
             this.flyImage({ fileName: 'lightening.png', width: 24, height: 24, text: skill },
                     attacker, defenders, settings.skillDuration);
         } else if (skill == '毒液' || skill == '毒雾' || skill == '毒云') {
