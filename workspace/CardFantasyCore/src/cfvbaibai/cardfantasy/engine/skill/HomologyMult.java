@@ -58,6 +58,10 @@ public final class HomologyMult {
             {
                 continue;
             }
+            // 优化极端混乱结算下的死循环问题
+            if(reviver.getOwner().getOutField().contains(cardInfo)){
+                continue;
+            }
             if( reviver.getOwner().getGrave().contains(cardInfo)) {
                 reviver.getOwner().getGrave().removeCard(cardInfo);
             }

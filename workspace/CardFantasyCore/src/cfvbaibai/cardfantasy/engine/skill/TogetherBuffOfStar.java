@@ -48,7 +48,9 @@ public final class TogetherBuffOfStar {
                 } else if (effect.getType() == SkillEffectType.MAXHP_CHANGE) {
                     resolver.getStage().getUI().loseAdjustHPEffect(ally, effect);
                 } else {
-                    throw new CardFantasyRuntimeException("Invalid effect type: " + effect.getType().name());
+                    if(effect.getType() !=SkillEffectType.SKILL_USED) {
+                        throw new CardFantasyRuntimeException("Invalid effect type: " + effect.getType().name());
+                    }
                 }
                 ally.removeEffect(effect);
             }
