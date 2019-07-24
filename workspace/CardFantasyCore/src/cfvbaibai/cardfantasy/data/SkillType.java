@@ -985,7 +985,7 @@ public enum SkillType {
     刀语("",SkillType.连击,0,SkillType.弱点攻击,0 ),
     逆鳞("",SkillType.武形秘箭,10,SkillType.神箭三重奏,10),
     突袭("",0,0, SkillTag.即死,SkillTag.额外攻击加成),
-    大突袭("",1,0, SkillTag.即死),
+    奇袭("",1,0, SkillTag.即死),
     樱魂("",SkillType.吸血,8,SkillType.奋战,7),
     LETITGO("", SkillType.送还,0,SkillType.反射装甲,0),
     高位逼抢("", SkillType.送还,0,SkillType.反射装甲,0),

@@ -39,6 +39,9 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
+                    <li>2019-07-24<x>欢笑，波波</x><ul>
+                        <li>修复【奇袭】判定对象错误的BUG,感谢<x>我们的故事</x>提供的帮助</li>
+                    </ul></li>
                     <li>2019-07-14<x>欢笑，波波</x><ul>
                         <li>修复【克己奉公】移除buff的BUG,感谢<x>不不</x>提供的帮助</li>
                         <li>优化复杂结算时，【同调】和【圣炎】冲突的问题，感谢<x>12332q</x>的帮助</li>

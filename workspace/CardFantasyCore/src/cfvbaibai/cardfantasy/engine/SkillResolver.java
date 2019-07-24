@@ -1060,11 +1060,11 @@ public class SkillResolver {
                 SoulLink.apply(this, skillUseInfo, attacker, defender, 2, 3);
             } else if (skillUseInfo.getType() == SkillType.审判之印) {
                 SoulChains.apply(this, skillUseInfo, attacker, defender, 4, 2);
-            } else if (skillUseInfo.getType() == SkillType.大突袭) {
-                if (attacker.getOwner().getField().getAliveCards().size() >= 1) {
+            } else if (skillUseInfo.getType() == SkillType.奇袭) {
+                if (defender.getOwner().getField().getAliveCards().size() >= 1) {
                     Transport.apply(this, skillUseInfo.getSkill(), attacker, defender);
                 }
-                if (attacker.getOwner().getField().getAliveCards().size() < 1) {
+                if (defender.getOwner().getField().getAliveCards().size() < 1) {
                     AllSpeedUp.apply(skillUseInfo, this, defender);
                 }
             } else if (skillUseInfo.getType() == SkillType.陷阵) {
