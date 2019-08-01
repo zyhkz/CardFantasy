@@ -1061,11 +1061,11 @@ public class SkillResolver {
             } else if (skillUseInfo.getType() == SkillType.审判之印) {
                 SoulChains.apply(this, skillUseInfo, attacker, defender, 4, 2);
             } else if (skillUseInfo.getType() == SkillType.奇袭) {
-                if (defender.getOwner().getField().getAliveCards().size() >= 1) {
+                if (defender.getOwner().getHand().size() >= 1) {
                     Transport.apply(this, skillUseInfo.getSkill(), attacker, defender);
                 }
-                if (defender.getOwner().getField().getAliveCards().size() < 1) {
-                    AllSpeedUp.apply(skillUseInfo, this, defender);
+                if (defender.getOwner().getHand().size() < 1) {
+                    AllSpeedUp.apply(skillUseInfo, this, attacker);
                 }
             } else if (skillUseInfo.getType() == SkillType.陷阵) {
                 ReturnCard.apply(this, skillUseInfo.getSkill(), attacker, defender, 3);
