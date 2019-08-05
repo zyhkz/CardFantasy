@@ -9,7 +9,7 @@ import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.engine.*;
 
 public final class RegressionSoul {
-    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, EntityInfo resurrector, Player opponent) {
+    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, EntityInfo resurrector, Player opponent) throws HeroDieSignal{
         if (resurrector == null) {
             throw new CardFantasyRuntimeException("resurrector should not be null");
         }

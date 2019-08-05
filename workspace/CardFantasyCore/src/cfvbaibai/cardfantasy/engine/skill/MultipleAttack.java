@@ -56,7 +56,8 @@ public final class MultipleAttack {
                                 skillUseInfo.getType() == SkillType.鬼彻 ||
                                 skillUseInfo.getType() == SkillType.灵击 ||
                                 skillUseInfo.getType() == SkillType.死亡践踏 ||
-                                skillUseInfo.getType() == SkillType.毒杀) {
+                                skillUseInfo.getType() == SkillType.毒杀 ||
+                                skillUseInfo.getType() == SkillType.巨斧横扫) {
                             List<CardInfo> sweepDefenders = new ArrayList<CardInfo>();
                             int i = attacker.getPosition();
                             if (i > 0 && opField.getCard(i - 1) != null) {

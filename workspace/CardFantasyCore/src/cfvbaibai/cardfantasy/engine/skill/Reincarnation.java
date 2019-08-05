@@ -6,7 +6,7 @@ import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.engine.*;
 
 public final class Reincarnation {
-    public static boolean apply(SkillResolver resolver, Skill cardSkill, CardInfo card, boolean unbending,Player opponent) {
+    public static boolean apply(SkillResolver resolver, Skill cardSkill, CardInfo card, boolean unbending,Player opponent) throws HeroDieSignal{
         Player player = card.getOwner();
         if (!card.isDead() || unbending) {
             return false; // The card is unbending!

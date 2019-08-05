@@ -23,7 +23,8 @@ public class UsageController {
     @RequestMapping(value = "/Usage/{key}", method = RequestMethod.PUT)
     public void recordUsage(HttpServletRequest request, HttpServletResponse response, @PathVariable("key") String key) {
         try {
-            cnzz.recordUsage(key);
+            //2019.8.5 去除百度统计
+//            cnzz.recordUsage(key);
         } catch (Exception e) {
             logger.error(e);
         }

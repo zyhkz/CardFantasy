@@ -2806,6 +2806,11 @@
         <Skill type="狂性" level="0" unlock="5" />
         <Skill type="良驹" level="0" unlock="10" />
     </Card>
+    <Card id="2665" name="刻耳柏洛斯" wikiId="" race="森林" speed="4" star="5" cost="21" incrCost="2" at="600" hp="1600" incrAT="40" incrHP="50">
+        <Skill type="三位一体" level="0" unlock="0" />
+        <Skill type="冥界三重奏" level="0" unlock="5" />
+        <Skill type="血禁秘术" level="0" unlock="10" />
+    </Card>
 
 
 
@@ -4057,6 +4062,26 @@
         <Skill type="星云锁链" level="0" unlock="0"  />
         <Skill type="退散" level="0" unlock="5"  summon="true"/>
         <Skill type="复活" level="0" unlock="10" death="true"/>
+    </Card>
+    <Card id="3650" name="魔岩龙战士" wikiId="" race="蛮荒" speed="2" star="5" cost="18" incrCost="2" at="575" hp="1545" incrAT="40" incrHP="45">
+        <Skill type="放逐之刃" level="0" unlock="0"  />
+        <Skill type="否决" level="0" unlock="5"  />
+        <Skill type="坚韧" level="0" unlock="10" />
+    </Card>
+    <Card id="3651" name="狂暴巨象" wikiId="" race="蛮荒" speed="3" star="5" cost="18" incrCost="2" at="525" hp="1600" incrAT="41" incrHP="50">
+        <Skill type="巨象猛冲" level="0" unlock="0"  />
+        <Skill type="战意侵蚀" level="0" unlock="5"  />
+        <Skill type="刀枪不入" level="0" unlock="10" />
+    </Card>
+    <Card id="3652" name="盔甲战鸡" wikiId="" race="蛮荒" speed="3" star="4" cost="15" incrCost="2" at="455" hp="1415" incrAT="35" incrHP="41">
+        <Skill type="燃烧铠甲" level="0" unlock="0"  />
+        <Skill type="猛禽" level="0" unlock="5"  />
+        <Skill type="涅盘" level="0" unlock="10" />
+    </Card>
+    <Card id="3653" name="星姬" wikiId="" race="蛮荒" speed="4" star="5" cost="16" incrCost="2" at="430" hp="1515" incrAT="42" incrHP="42">
+        <Skill type="星决" level="0" unlock="0"  />
+        <Skill type="紊乱" level="0" unlock="5"  />
+        <Skill type="星眸" level="0" unlock="10" />
     </Card>
 
 
@@ -5479,6 +5504,17 @@
         <Skill type="踢雪" level="0" unlock="5" />
         <Skill type="真龙九现" level="0" unlock="10" />
     </Card>
+    <Card id="4686" name="实验室助手" wikiId="" race="地狱" speed="2" star="4" cost="15" incrCost="2" at="425" hp="1310" incrAT="34" incrHP="34">
+        <Skill type="实验失败" level="0" unlock="0" />
+        <Skill type="精神污染" level="10" unlock="5" />
+        <Skill type="迷影" level="0" unlock="10" />
+    </Card>
+    <Card id="4687" name="巨斧战将" wikiId="" race="地狱" speed="4" star="5" cost="19" incrCost="2" at="525" hp="1555" incrAT="41" incrHP="45">
+        <Skill type="恐惧降临" level="0" unlock="0" />
+        <Skill type="巨斧横扫" level="0" unlock="5" />
+        <Skill type="游击" level="0" unlock="10" />
+    </Card>
+
 
 
 

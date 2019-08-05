@@ -3,12 +3,13 @@ package cfvbaibai.cardfantasy.engine.skill;
 import cfvbaibai.cardfantasy.GameUI;
 import cfvbaibai.cardfantasy.Randomizer;
 import cfvbaibai.cardfantasy.data.Skill;
+import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.*;
 
 import java.util.List;
 
 public class Asthenia {
-    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, CardInfo attackCard, Player defenderHero,int victimCount,int effectNumber) throws HeroDieSignal {
+    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, EntityInfo attackCard, Player defenderHero,int victimCount,int effectNumber) throws HeroDieSignal {
 
         StageInfo stage = resolver.getStage();
         Randomizer random = stage.getRandomizer();
@@ -19,6 +20,9 @@ public class Asthenia {
         GameUI ui = resolver.getStage().getUI();
         Skill skill = skillUseInfo.getSkill();
         int impact = skill.getImpact2();
+        if(skillUseInfo.getType() == SkillType.虚实){
+            impact = skill.getImpact3();
+        }
         ui.useSkill(attackCard, victims, skill, true);
         CardStatusItem status = CardStatusItem.paralyzed(skillUseInfo);
         status.setEffect(impact);

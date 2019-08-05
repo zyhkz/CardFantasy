@@ -1,13 +1,16 @@
 package cfvbaibai.cardfantasy.engine.skill;
 
 import cfvbaibai.cardfantasy.Randomizer;
+import cfvbaibai.cardfantasy.data.CardSkill;
+import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class HellPrison {
-    public static void apply(SkillResolver resolver, Player player, Player defender)
+    public static void apply(SkillResolver resolver, Player player, Player defender) throws HeroDieSignal
     {
         List<CardInfo> allHandCards = defender.getHand().toList();
         StageInfo stage = resolver.getStage();
@@ -19,10 +22,6 @@ public final class HellPrison {
         }
         for(CardInfo attackerCard :fileCard) {
             if(attackerCard==null)
-            {
-                continue;
-            }
-            if(!(attackerCard.containsUsableSkill(SkillType.冥狱牢囚)||attackerCard.containsUsableSkill(SkillType.食梦)||attackerCard.containsUsableSkill(SkillType.雷狱牢囚)))
             {
                 continue;
             }
@@ -38,6 +37,37 @@ public final class HellPrison {
                         int summonDelay = card.getSummonDelay();
                         resolver.getStage().getUI().increaseSummonDelay(card, skillUseInfo.getSkill().getImpact());
                         card.setSummonDelay(summonDelay + skillUseInfo.getSkill().getImpact());
+                    }
+                }
+                else if(skillUseInfo.getSkill().getType()==SkillType.冥狱牢囚){
+                    Skill addSkill = skillUseInfo.getAttachedUseInfo1().getSkill();
+                    CardSkill cardSkill = new CardSkill(addSkill.getType(), addSkill.getLevel(), 0, false, false, false, false);
+                    List<CardInfo> addCard= new ArrayList<CardInfo>();
+                    List<CardInfo> revivableCards = new ArrayList<CardInfo>();
+                    SkillUseInfo thisSkillUserInfo=null;
+                    for (CardInfo handCard : allHandCards) {
+                        if (handCard != null && !handCard.containsAllSkill(addSkill.getType())) {
+                            revivableCards.add(handCard);
+                        }
+                    }
+                    if (revivableCards.isEmpty()) {
+                        return;
+                    }
+                    addCard = Randomizer.getRandomizer().pickRandom(
+                            revivableCards, 1, true, null);
+
+                    for (CardInfo once : addCard) {
+                        OnAttackBlockingResult result = resolver.resolveAttackBlockingSkills(attackerCard, once, skillUseInfo.getSkill(), 1);
+                        if(!result.isAttackable()) {
+                            continue;
+                        }
+                        if(once.containsAllSkill(addSkill.getType()))
+                        {
+                            continue;
+                        }
+                        thisSkillUserInfo = new SkillUseInfo(once,cardSkill);
+                        thisSkillUserInfo.setGiveSkill(2);
+                        once.addSkill(thisSkillUserInfo);
                     }
                 }
             }

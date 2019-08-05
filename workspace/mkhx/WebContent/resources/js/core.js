@@ -62,7 +62,7 @@ var sendAjaxRequest = function(attrs) {
     var errorHandler = attrs.errorHandler || function(context, responseText, statusCode, statusText) { alert('Error: ' + statusText + '! ' + responseText); };
     var completeHandler = attrs.completeHandler || function(context, responseText, statusCode, statusText) {};
 
-    uploadToCnzzUrl(cnzzUrl);
+    //uploadToCnzzUrl(cnzzUrl); //去掉百度统计
     var buttons = $('a.battle-button');
     buttons.addClass('ui-disbaled');
     $.mobile.loading('show');

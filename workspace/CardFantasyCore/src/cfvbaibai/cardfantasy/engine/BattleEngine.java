@@ -213,13 +213,6 @@ public class BattleEngine {
         for (CardInfo card : this.getActivePlayer().getGrave().toList()) {
             this.stage.getResolver().resolvePostcastSkills(card, this.getInactivePlayer());
         }
-        for(CardInfo defenderCard : this.getInactivePlayer().getField().getAliveCards())
-        {
-            defenderCard.setRuneActive(false);//符文不发动
-            defenderCard.setSummonNumber(defenderCard.getSummonNumber()+1);//存在回合数+1
-            this.stage.getResolver().removeStatus(defenderCard, CardStatusType.魔族);//移除魔族buff
-            this.stage.getResolver().removeGiveSkills(defenderCard);
-        }
         Collection<CardInfo> allHandCards = this.stage.getAllHandCards();
         for (CardInfo card : allHandCards) {
             int summonDelay = card.getSummonDelay();
@@ -520,7 +513,8 @@ public class BattleEngine {
                     skillUseInfo.getType() == SkillType.死亡践踏 ||
                     skillUseInfo.getType() == SkillType.鬼彻 ||
                     skillUseInfo.getType() == SkillType.毒杀 ||
-                    skillUseInfo.getType() == SkillType.狂性) {
+                    skillUseInfo.getType() == SkillType.狂性 ||
+                    skillUseInfo.getType() == SkillType.巨斧横扫) {
                 ui.useSkill(myField.getCard(i), defender, skillUseInfo.getSkill(), true);
             }
             else if (skillUseInfo.getType() == SkillType.一文字 || skillUseInfo.getType() == SkillType.页游横扫千军
@@ -538,7 +532,8 @@ public class BattleEngine {
             {
                 if(skillUseInfo.getType() == SkillType.嘲讽 || skillUseInfo.getType() == SkillType.酒池肉林
                         || skillUseInfo.getType() == SkillType.喵喵喵|| skillUseInfo.getType() == SkillType.蔑视
-                        || skillUseInfo.getType() == SkillType.龙之守护 || skillUseInfo.getType() == SkillType.守护之翼)
+                        || skillUseInfo.getType() == SkillType.龙之守护 || skillUseInfo.getType() == SkillType.守护之翼
+                        || skillUseInfo.getType() == SkillType.战意侵蚀)
                 {
                     skill = skillUseInfo.getSkill();
                 }
@@ -563,7 +558,8 @@ public class BattleEngine {
                         skillUseInfo.getType() == SkillType.灵击 ||
                         skillUseInfo.getType() == SkillType.死亡践踏 ||
                         skillUseInfo.getType() == SkillType.毒杀 ||
-                        skillUseInfo.getType() == SkillType.狂性) {
+                        skillUseInfo.getType() == SkillType.狂性 ||
+                        skillUseInfo.getType() == SkillType.巨斧横扫) {
                     List<CardInfo> sweepDefenders = new ArrayList<CardInfo>();
                     if (i > 0 && opField.getCard(i - 1) != null) {
                         sweepDefenders.add(opField.getCard(i - 1));
@@ -691,6 +687,12 @@ public class BattleEngine {
 
     private Phase drawCard()throws HeroDieSignal {
         this.stage.getResolver().activateIndentures(this.getActivePlayer(), this.getInactivePlayer());
+        for(CardInfo attackCard : this.getActivePlayer().getField().getAliveCards()) {
+            attackCard.setRuneActive(false);//符文不发动
+            attackCard.setSummonNumber(attackCard.getSummonNumber()+1);//存在回合数+1
+            this.stage.getResolver().removeStatus(attackCard, CardStatusType.魔族);//移除魔族buff
+            this.stage.getResolver().removeGiveSkills(attackCard);
+        }
         Player activePlayer = this.getActivePlayer();
         this.stage.getResolver().setStagePhase(Phase.抽卡);
         Hand hand = activePlayer.getHand();
@@ -712,13 +714,15 @@ public class BattleEngine {
     private CardInfo tauntCard(Field opField){
         if(opField.size()>0) {
             for (CardInfo card : opField.getAliveCards()) {
-                if(card.containsUsableSkill(SkillType.嘲讽)||card.containsUsableSkill(SkillType.酒池肉林)
-                        ||card.containsUsableSkill(SkillType.喵喵喵)||card.containsUsableSkill(SkillType.蔑视)
-                        ||card.containsUsableSkill(SkillType.龙之守护)||card.containsUsableSkill(SkillType.守护之翼)
-                        ||card.containsUsableSkill(SkillType.百里))
-                {
-                    if(!card.getStatus().containsStatus(CardStatusType.不屈)){
-                        return card;
+                for(SkillUseInfo skillUseInfo: card.getUsableNormalSkills()) {
+                    if (skillUseInfo.getType()==SkillType.嘲讽 || skillUseInfo.getType()==SkillType.酒池肉林
+                            || skillUseInfo.getType()==SkillType.喵喵喵 || skillUseInfo.getType()==SkillType.蔑视
+                            || skillUseInfo.getType()==SkillType.龙之守护 || skillUseInfo.getType()==SkillType.守护之翼
+                            || skillUseInfo.getType()==SkillType.百里
+                            || skillUseInfo.getType()==SkillType.战意侵蚀) {
+                        if (!card.getStatus().containsStatus(CardStatusType.不屈)) {
+                            return card;
+                        }
                     }
                 }
             }
