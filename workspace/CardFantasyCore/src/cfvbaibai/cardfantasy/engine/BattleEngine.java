@@ -213,13 +213,14 @@ public class BattleEngine {
         for (CardInfo card : this.getActivePlayer().getGrave().toList()) {
             this.stage.getResolver().resolvePostcastSkills(card, this.getInactivePlayer());
         }
-        Collection<CardInfo> allHandCards = this.stage.getAllHandCards();
-        for (CardInfo card : allHandCards) {
-            int summonDelay = card.getSummonDelay();
-            if (summonDelay > 0) {
-                card.setSummonDelay(summonDelay - 1);
-            }
-        }
+        //减少cd调整为回合开始时 yzq2019.08.08
+//        Collection<CardInfo> allHandCards = this.stage.getAllHandCards();
+//        for (CardInfo card : allHandCards) {
+//            int summonDelay = card.getSummonDelay();
+//            if (summonDelay > 0) {
+//                card.setSummonDelay(summonDelay - 1);
+//            }
+//        }
 
         Player previousPlayer = getActivePlayer();
         int thisRound = stage.getRound();
@@ -687,6 +688,13 @@ public class BattleEngine {
 
     private Phase drawCard()throws HeroDieSignal {
         this.stage.getResolver().activateIndentures(this.getActivePlayer(), this.getInactivePlayer());
+        Collection<CardInfo> allHandCards = this.stage.getAllHandCards();
+        for (CardInfo card : allHandCards) {
+            int summonDelay = card.getSummonDelay();
+            if (summonDelay > 0) {
+                card.setSummonDelay(summonDelay - 1);
+            }
+        }
         for(CardInfo attackCard : this.getActivePlayer().getField().getAliveCards()) {
             attackCard.setRuneActive(false);//符文不发动
             attackCard.setSummonNumber(attackCard.getSummonNumber()+1);//存在回合数+1
