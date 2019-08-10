@@ -33,6 +33,7 @@ public final class UnderworldTrio {
             return;
         }
         int type = 0;//0不发动1，2侧击3夹击
+        boolean self = false;// 自身是冥界
         SkillUseInfo attackSkillUseInfo = null;
         CardInfo preCardInfo = null;
         if(position>0) {
@@ -43,6 +44,7 @@ public final class UnderworldTrio {
             if(skillUseInfo.getType() == SkillType.冥界三重奏){
                 attackSkillUseInfo = skillUseInfo;
                 type++;
+                self = true;
                 break;
             }
         }
@@ -66,7 +68,8 @@ public final class UnderworldTrio {
         }
         if(type>0){
             GameUI ui = resolver.getStage().getUI();
-            if(type==3){
+            //大于等于二
+            if(self&&type>=2){
                 ui.killCard(attacker, defender, attackSkillUseInfo.getAttachedUseInfo2().getSkill());
                 resolver.killCard(attacker, defender, attackSkillUseInfo.getAttachedUseInfo2().getSkill());
             }else{
