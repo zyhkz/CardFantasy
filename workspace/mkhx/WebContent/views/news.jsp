@@ -39,7 +39,7 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
-                    <li>2019-08-04<x>欢笑，波波</x><ul>
+                    <li>2019-08-11<x>欢笑，波波</x><ul>
                         <li>修复技能【冥界三重奏】只有中间卡牌触发夹击的问题（修改为只需要两张可以触发夹击）</li>
                     </ul></li>
                     <li>2019-08-04<x>欢笑，波波</x><ul>
