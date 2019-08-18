@@ -34,6 +34,14 @@ public class IndentureBox {
         return new ArrayList<IndentureInfo>(this.indentureInfos);
     }
 
+    public List<CardInfo> getCards() {
+        List<CardInfo> cardInfoList = new ArrayList<>();
+        for(IndentureInfo indentureInfo:indentureInfos){
+            cardInfoList.add(indentureInfo.getCardInfo());
+        }
+        return  cardInfoList;
+    }
+
     public IndentureInfo getIndentureInfoOf(IndentureData indentureData) {
         for (IndentureInfo indentureInfo : this.indentureInfos) {
             if (indentureInfo.is(indentureData)) {

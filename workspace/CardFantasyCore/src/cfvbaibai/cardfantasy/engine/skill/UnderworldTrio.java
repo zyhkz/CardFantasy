@@ -14,6 +14,9 @@ public final class UnderworldTrio {
         if(defender.getStatus().containsStatus(CardStatusType.不屈)){
             return;
         }
+        if(defender.isBoss()){
+            return;
+        }
         int position = defender.getPosition();
         Boolean flag = false;
         if(position>0){

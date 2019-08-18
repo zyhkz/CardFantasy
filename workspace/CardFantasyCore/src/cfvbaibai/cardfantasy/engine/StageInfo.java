@@ -192,6 +192,8 @@ public class StageInfo {
             int sumCardAT = 0;
             int sumCardHP = 0;
             List<CardInfo> cards = player.getDeck().getCards();
+            List<CardInfo> indentureCards = player.getIndentureBox().getCards(); // 契约卡牌计算先后手
+            cards.addAll(indentureCards);
             for (CardInfo card : cards) {
                 sumCardAT += card.getInitAT();
                 sumCardHP += card.getRawMaxHP();

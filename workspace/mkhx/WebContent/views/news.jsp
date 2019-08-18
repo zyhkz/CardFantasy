@@ -39,6 +39,9 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
+                    <li>2019-08-18<x>欢笑，波波</x><ul>
+                        <li>修复技能【冥界三重奏】对魔神生效的问题，调整先后手计算（添加契约的血量和攻击影响）</li>
+                    </ul></li>
                     <li>2019-08-11<x>欢笑，波波</x><ul>
                         <li>修复技能【冥界三重奏】只有中间卡牌触发夹击的问题（修改为只需要两张可以触发夹击）</li>
                     </ul></li>
