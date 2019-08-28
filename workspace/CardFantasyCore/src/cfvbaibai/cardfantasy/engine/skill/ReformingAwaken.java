@@ -69,8 +69,7 @@ public class ReformingAwaken {
             defender.getDeck().removeCard(card);
             defender.getField().removeCard(card);
             defender.getOutField().removeCard(card);
-            resolver.summonCard(card.getOwner(), card, null, false, skillUseInfo.getSkill(), 0);
-            card.setUsed(skillUseInfo);
+            resolver.summonCardReforming(card.getOwner(), card, null, false, skillUseInfo, 0);
         }
     }
 

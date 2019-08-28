@@ -39,6 +39,9 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
+                    <li>2019-08-28<x>欢笑，波波</x><ul>
+                        <li>略微调整重整的结算</li>
+                    </ul></li>
                     <li>2019-08-25<x>欢笑，波波</x><ul>
                         <li>修复调整先后手导致的契约加入卡组的问题，感谢大叔和星河陨灭提供的帮助</li>
                     </ul></li>

@@ -60,8 +60,7 @@ public class Reforming {
             attacker.getDeck().removeCard(card);
             attacker.getField().removeCard(card);
             attacker.getOutField().removeCard(card);
-            resolver.summonCard(card.getOwner(), card, null, false, skillUseInfo.getSkill(), 0);
-            card.setUsed(skillUseInfo);
+            resolver.summonCardReforming(card.getOwner(), card, null, false, skillUseInfo, 0);
         }
     }
 

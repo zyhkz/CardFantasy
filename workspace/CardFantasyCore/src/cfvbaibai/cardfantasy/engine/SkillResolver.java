@@ -4088,6 +4088,16 @@ public class SkillResolver {
         //取消召唤类技能直接发动二段技能。
     }
 
+    // 重整类技能召唤卡牌
+    public void summonCardReforming(Player player, CardInfo summonedCard, CardInfo reviver, boolean isMinion, SkillUseInfo summonSkillUseInfo, int flag) throws HeroDieSignal {
+        Player enemy = this.getStage().getOpponent(player);
+        setCardToField(summonedCard, flag);
+        summonedCard.setUsed(summonSkillUseInfo);
+        this.resolveFirstClassSummoningSkills(summonedCard, player, enemy, isMinion);
+        // this.resolveSecondClassSummoningSkills(summonedCards, player.getField(), enemy.getField(), summonSkill, true);
+        //取消召唤类技能直接发动二段技能。
+    }
+
     public void summonCardIndenture(Player player, CardInfo summonedCard, IndentureInfo reviver, boolean isMinion, Skill summonSkill, int flag) throws HeroDieSignal {
         Player enemy = this.getStage().getOpponent(player);
         setCardToField(summonedCard, flag);
