@@ -9,7 +9,8 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>公告</h3>
                 <ul>
-                    <li><a href="#" data-type="bug">魔卡幻想模拟器贴吧</a>已成立，欢迎大家来提BUG、提需求、提供技能结算细节。</li>
+                    <%--<li><a href="#" data-type="bug">魔卡幻想模拟器贴吧</a>已成立，欢迎大家来提BUG、提需求、提供技能结算细节。</li>--%>
+                        <li><a href="#" data-type="bug">魔卡幻想贴吧</a>,欢迎大家来提BUG、提需求、提供技能结算细节。</li>
                     <li>最近工作生活实在太忙，已经快抽不出时间做模拟器了，若有精英愿加入开发阵营，感激不尽！有意者戳<a href="#open-source">这里</a>。</li>
                     <%--<li style="color: red">日前发现有人利用外挂或辅助连接模拟器进行海量计算，导致模拟器服务器瘫痪。请立即停止这种行为！目前仅仅是封IP，不想就为了这件事加入验证码，搞得大家都不方便。</li>--%>
                     <li style="color: red">群里小伙伴做的魔卡全方面的wiki很全而且更新很快，有需要的可以访问<a href="http://mkhx.humphreyj.com/">魔卡百科</a></li>
