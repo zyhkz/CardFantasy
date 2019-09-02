@@ -45,6 +45,10 @@ public final class Homology {
             {
                 continue;
             }
+            //添加卡牌如果被移除，就不在触发牵丝诡术
+            if(reviver.getOwner().getOutField().contains(cardInfo)){
+                continue;
+            }
             if( reviver.getOwner().getGrave().contains(cardInfo)) {
                 reviver.getOwner().getGrave().removeCard(cardInfo);
             }

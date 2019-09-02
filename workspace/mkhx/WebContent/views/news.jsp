@@ -39,6 +39,9 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
+                    <li>2019-09-02<x>欢笑，波波</x><ul>
+                        <li>调整同调结算，解决复杂情况下同调出现卡牌复制的问题（例如魔幻人偶师），感谢<x>12332q</x>，侠刀提供的帮助，模拟器贴吧好像挂了，有问题可以去官方吧发帖反馈</li>
+                    </ul></li>
                     <li>2019-08-28<x>欢笑，波波</x><ul>
                         <li>略微调整重整的结算</li>
                     </ul></li>
