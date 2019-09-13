@@ -5,7 +5,7 @@ import cfvbaibai.cardfantasy.data.Race;
 import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.engine.*;
 
-public final class SelfHpBuff {
+public final class SelfBuff {
     public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, CardInfo card,
             SkillEffectType effectType) {
         if (card == null) {

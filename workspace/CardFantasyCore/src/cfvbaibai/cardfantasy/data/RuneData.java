@@ -19,7 +19,7 @@ public enum RuneData {
     玄石("", RuneClass.GROUND, 5, SkillType.全体加速, 2, 0, 5, Growth.RUNE, RuneActivator.fieldDiff(1)),
     狂战("", RuneClass.GROUND, 5, SkillType.穿刺, 6, 1, 5, Growth.RUNE, RuneActivator.myField(1, Race.SAVAGE)),
     背水("", RuneClass.GROUND, 5, SkillType.袈裟斩燕返, 0, 0, 5, Growth.RUNE, RuneActivator.fieldDiff(1)),
-    冥途("", RuneClass.GROUND, 5, SkillType.圣炎, 0, 0, 4, Growth.RUNE, RuneActivator.enemyGrave(1, null)),
+    冥途("", RuneClass.GROUND, 4, SkillType.圣炎, 0, 0, 5, Growth.RUNE, RuneActivator.enemyGrave(1, null)),
     景星("", RuneClass.GROUND, 5, SkillType.祈愿, 1, 0, 5, Growth.RUNE, RuneActivator.myHandLess(1, null)),
     彼岸("", RuneClass.GROUND, 5, SkillType.彼岸枷锁, 1, 1, 5, Growth.RUNE, RuneActivator.enemyField(3, null)),
 

@@ -36,7 +36,8 @@ public enum CardStatusType {
     地狱(false, "地"),
     魔族(false, "族"),
     蛇影(false, "蛇"),
-    石化(false, "石");
+    石化(false, "石"),
+    厄运(false, "厄");
     
 
     private boolean quantitive;

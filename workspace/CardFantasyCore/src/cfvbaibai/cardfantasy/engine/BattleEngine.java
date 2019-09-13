@@ -534,7 +534,7 @@ public class BattleEngine {
                 if(skillUseInfo.getType() == SkillType.嘲讽 || skillUseInfo.getType() == SkillType.酒池肉林
                         || skillUseInfo.getType() == SkillType.喵喵喵|| skillUseInfo.getType() == SkillType.蔑视
                         || skillUseInfo.getType() == SkillType.龙之守护 || skillUseInfo.getType() == SkillType.守护之翼
-                        || skillUseInfo.getType() == SkillType.战意侵蚀)
+                        || skillUseInfo.getType() == SkillType.战意侵蚀 || skillUseInfo.getType() == SkillType.魔女之躯)
                 {
                     skill = skillUseInfo.getSkill();
                 }
@@ -695,12 +695,10 @@ public class BattleEngine {
                 card.setSummonDelay(summonDelay - 1);
             }
         }
-        for(CardInfo attackCard : this.getActivePlayer().getField().getAliveCards()) {
-            attackCard.setRuneActive(false);//符文不发动
-            attackCard.setSummonNumber(attackCard.getSummonNumber()+1);//存在回合数+1
-            this.stage.getResolver().removeStatus(attackCard, CardStatusType.魔族);//移除魔族buff
-            this.stage.getResolver().removeGiveSkills(attackCard);
+        for(CardInfo defenderCard : this.getInactivePlayer().getField().getAliveCards()) {
+            this.stage.getResolver().removeStatus(defenderCard, CardStatusType.厄运);//移除魔族buff
         }
+
         Player activePlayer = this.getActivePlayer();
         this.stage.getResolver().setStagePhase(Phase.抽卡);
         Hand hand = activePlayer.getHand();
@@ -727,7 +725,8 @@ public class BattleEngine {
                             || skillUseInfo.getType()==SkillType.喵喵喵 || skillUseInfo.getType()==SkillType.蔑视
                             || skillUseInfo.getType()==SkillType.龙之守护 || skillUseInfo.getType()==SkillType.守护之翼
                             || skillUseInfo.getType()==SkillType.百里
-                            || skillUseInfo.getType()==SkillType.战意侵蚀) {
+                            || skillUseInfo.getType()==SkillType.战意侵蚀
+                            || skillUseInfo.getType() == SkillType.魔女之躯) {
                         if (!card.getStatus().containsStatus(CardStatusType.不屈)) {
                             return card;
                         }
