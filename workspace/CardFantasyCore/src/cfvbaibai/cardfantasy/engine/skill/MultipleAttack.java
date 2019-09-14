@@ -82,7 +82,7 @@ public final class MultipleAttack {
                         }
                         else if (skillUseInfo.getType() == SkillType.一文字 || skillUseInfo.getType() == SkillType.页游横扫千军
                                 || skillUseInfo.getType() == SkillType.横扫千军 || skillUseInfo.getType() == SkillType.纷乱雪月花
-                                || skillUseInfo.getType() == SkillType.醉生梦死) {
+                                || skillUseInfo.getType() == SkillType.醉生梦死 || skillUseInfo.getType() == SkillType.魔王之怒) {
                             for (CardInfo sweepDefender : opField.getAliveCards()) {
                                 if(!sweepDefender.isAlive())
                                 {

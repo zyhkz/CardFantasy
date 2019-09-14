@@ -6,13 +6,11 @@ import java.util.List;
 import cfvbaibai.cardfantasy.GameUI;
 import cfvbaibai.cardfantasy.data.Race;
 import cfvbaibai.cardfantasy.data.Skill;
-import cfvbaibai.cardfantasy.engine.CardInfo;
-import cfvbaibai.cardfantasy.engine.EntityInfo;
-import cfvbaibai.cardfantasy.engine.Player;
-import cfvbaibai.cardfantasy.engine.SkillResolver;
+import cfvbaibai.cardfantasy.data.SkillType;
+import cfvbaibai.cardfantasy.engine.*;
 
 public final class HolyFire {
-    public static void apply(Skill cardSkill, SkillResolver resolver, EntityInfo attacker, Player defender) {
+    public static void apply(Skill cardSkill, SkillResolver resolver, EntityInfo attacker, Player defender) throws HeroDieSignal{
         if (defender.getGrave().size() == 0) {
             return;
         }
@@ -33,6 +31,17 @@ public final class HolyFire {
             ui.useSkill(attacker, victim, cardSkill, true);
             if (SoulSeal.soulSealed(resolver, attacker)) {
                 return;
+            }
+            for(SkillUseInfo skillUseInfo:victim.getUsableNormalSkills()){
+                if(skillUseInfo.getType() == SkillType.浴火重生){
+                    ui.useSkill(victim, victim, skillUseInfo.getSkill(), true);
+                    defender.getGrave().removeCard(victim);
+                    resolver.summonCard(defender, victim, victim, false, skillUseInfo.getSkill(),0);
+                    CardStatusItem item = CardStatusItem.weak(skillUseInfo);
+                    resolver.getStage().getUI().addCardStatus(victim, victim, skillUseInfo.getSkill(), item);
+                    victim.addStatus(item);
+                    return;
+                }
             }
             ui.cardToOutField(defender, victim);
             defender.getGrave().removeCard(victim);

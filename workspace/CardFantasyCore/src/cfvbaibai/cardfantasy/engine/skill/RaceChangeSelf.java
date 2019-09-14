@@ -17,6 +17,9 @@ public final class RaceChangeSelf {
             if (!resolver.resolveAttackBlockingSkills(attacker, victim, skill, 1).isAttackable()) {
                 continue;
             }
+            if(victim.isBoss() || victim.isDeman()){
+                continue;
+            }
             resolver.removeStatus(victim, CardStatusType.王国);
             resolver.removeStatus(victim, CardStatusType.森林);
             resolver.removeStatus(victim, CardStatusType.蛮荒);

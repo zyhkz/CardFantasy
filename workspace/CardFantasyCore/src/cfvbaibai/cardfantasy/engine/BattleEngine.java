@@ -520,7 +520,7 @@ public class BattleEngine {
             }
             else if (skillUseInfo.getType() == SkillType.一文字 || skillUseInfo.getType() == SkillType.页游横扫千军
                     || skillUseInfo.getType() == SkillType.横扫千军 || skillUseInfo.getType() == SkillType.纷乱雪月花
-                    || skillUseInfo.getType() == SkillType.醉生梦死) {
+                    || skillUseInfo.getType() == SkillType.醉生梦死 || skillUseInfo.getType() == SkillType.魔王之怒) {
                 ui.useSkill(myField.getCard(i), defender, skillUseInfo.getSkill(), true);
             }
         }
@@ -534,6 +534,7 @@ public class BattleEngine {
                 if(skillUseInfo.getType() == SkillType.嘲讽 || skillUseInfo.getType() == SkillType.酒池肉林
                         || skillUseInfo.getType() == SkillType.喵喵喵|| skillUseInfo.getType() == SkillType.蔑视
                         || skillUseInfo.getType() == SkillType.龙之守护 || skillUseInfo.getType() == SkillType.守护之翼
+                        || skillUseInfo.getType()==SkillType.百里
                         || skillUseInfo.getType() == SkillType.战意侵蚀 || skillUseInfo.getType() == SkillType.魔女之躯)
                 {
                     skill = skillUseInfo.getSkill();
@@ -607,7 +608,7 @@ public class BattleEngine {
             for (SkillUseInfo skillUseInfo : myField.getCard(i).getUsableNormalSkills()) {
                 if (skillUseInfo.getType() == SkillType.一文字 || skillUseInfo.getType() == SkillType.页游横扫千军
                         || skillUseInfo.getType() == SkillType.横扫千军 || skillUseInfo.getType() == SkillType.纷乱雪月花
-                        || skillUseInfo.getType() == SkillType.醉生梦死) {
+                        || skillUseInfo.getType() == SkillType.醉生梦死 || skillUseInfo.getType() == SkillType.魔王之怒) {
                     for (CardInfo sweepDefender : opField.getAliveCards()) {
                         //一文字可以攻击自己。
                         //开放一文字不会再攻击自己（19.4.22）

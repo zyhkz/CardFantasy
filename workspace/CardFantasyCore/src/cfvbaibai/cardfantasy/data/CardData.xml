@@ -1526,6 +1526,22 @@
         <Skill type="绝境之志" level="0" unlock="5" />
         <Skill type="柳暗花明" level="0" unlock="10" />
     </Card>
+    <Card id="1700" name="超能力少女" wikiId="" race="王国" speed="3" star="4" cost="15" incrCost="2" at="405" hp="1300" incrAT="33" incrHP="35">
+        <Skill type="超能力光线" level="0" unlock="0" />
+        <Skill type="气氛感染" level="0" unlock="5" />
+        <Skill type="不灭" level="4" unlock="10" />
+    </Card>
+    <Card id="1701" name="乱世魔王·董卓" wikiId="" race="王国" speed="4" star="5" cost="18" incrCost="2" at="515" hp="1565" incrAT="43" incrHP="40">
+        <Skill type="噬主" level="0" unlock="0" />
+        <Skill type="物理免疫" level="0" unlock="5" />
+        <Skill type="权倾朝野" level="0" unlock="10" />
+    </Card>
+    <Card id="1702" name="旷世绝恋·貂蝉" wikiId="" race="王国" speed="3" star="5" cost="18" incrCost="2" at="555" hp="1520" incrAT="41" incrHP="45">
+        <Skill type="倾城" level="0" unlock="0" />
+        <Skill type="逃跑" level="0" unlock="5" />
+        <Skill type="无尽华尔兹" level="0" unlock="10" />
+    </Card>
+
 
 
 
@@ -2811,6 +2827,26 @@
         <Skill type="冥界三重奏" level="0" unlock="5" />
         <Skill type="血禁秘术" level="0" unlock="10" />
     </Card>
+    <Card id="2666" name="齐天大圣" wikiId="" race="森林" speed="4" star="5" cost="21" incrCost="2" at="600" hp="1600" incrAT="45" incrHP="48">
+        <Skill type="花果山美猴王" level="0" unlock="0" />
+        <Skill type="金刚不坏之躯" level="0" unlock="5" />
+        <Skill type="法天象地" level="0" unlock="10" />
+    </Card>
+    <Card id="2667" name="猴子猴孙" wikiId="" race="森林" speed="6" star="5" cost="20" incrCost="3" at="590" hp="1580" incrAT="41" incrHP="48">
+        <Skill type="灵猴棒法" level="0" unlock="0" />
+        <Skill type="灵体召回" level="0" unlock="5" />
+        <Skill type="圣灵护佑" level="0" unlock="10" />
+    </Card>
+    <Card id="2668" name="偶像少女" wikiId="" race="森林" speed="3" star="4" cost="15" incrCost="2" at="415" hp="1305" incrAT="35" incrHP="30">
+        <Skill type="镜像" level="0" unlock="0" precast="true"/>
+        <Skill type="偶像演出" level="0" unlock="5" />
+        <Skill type="六道轮回" level="0" unlock="10" />
+    </Card>
+    <Card id="2669" name="冀州双雄·文丑" wikiId="" race="森林" speed="3" star="5" cost="19" incrCost="2" at="560" hp="1575" incrAT="43" incrHP="50">
+        <Skill type="勇冠三军" level="0" unlock="0" />
+        <Skill type="扼杀" level="0" unlock="5" />
+        <Skill type="重整" level="0" unlock="10" />
+    </Card>
 
 
 
@@ -4082,6 +4118,11 @@
         <Skill type="星决" level="0" unlock="0"  />
         <Skill type="紊乱" level="0" unlock="5"  />
         <Skill type="星眸" level="0" unlock="10" />
+    </Card>
+    <Card id="3654" name="旷世绝恋·吕布" wikiId="" race="蛮荒" speed="4" star="5" cost="21" incrCost="2" at="615" hp="1645" incrAT="45" incrHP="48">
+        <Skill type="震慑" level="0" unlock="0"  />
+        <Skill type="一夫当关" level="0" unlock="5"  />
+        <Skill type="死亡收割" level="0" unlock="10" />
     </Card>
 
 
@@ -5514,6 +5555,26 @@
         <Skill type="巨斧横扫" level="0" unlock="5" />
         <Skill type="游击" level="0" unlock="10" />
     </Card>
+    <Card id="4688" name="冥狱守望者" wikiId="" race="地狱" speed="3" star="5" cost="21" incrCost="2" at="615" hp="1650" incrAT="40" incrHP="45">
+        <Skill type="幽冥暗影" level="0" unlock="0" />
+        <Skill type="地狱守望" level="0" unlock="5" postcast="true"/>
+        <Skill type="浴火重生" level="0" unlock="10" />
+    </Card>
+    <Card id="4689" name="幽冥暗影" wikiId="" race="地狱" speed="3" star="5" cost="99" incrCost="0" at="600" hp="1600" incrAT="40" incrHP="40">
+        <Skill type="幽冥诅咒" level="0" unlock="0" />
+        <Skill type="守望之力" level="0" unlock="5" />
+        <Skill type="三千世界" level="0" unlock="10" />
+    </Card>
+    <Card id="4690" name="神鬼之医·华佗" wikiId="" race="地狱" speed="3" star="5" cost="19" incrCost="2" at="525" hp="1545" incrAT="41" incrHP="48">
+        <Skill type="灵魂锁链" level="0" unlock="0" />
+        <Skill type="神鬼之医" level="0" unlock="5" />
+        <Skill type="急救" level="0" unlock="10" />
+    </Card>
+    <Card id="4691" name="冀州双雄·颜良" wikiId="" race="地狱" speed="3" star="5" cost="18" incrCost="2" at="560" hp="1575" incrAT="43" incrHP="50">
+        <Skill type="一夫之勇" level="0" unlock="0" />
+        <Skill type="精武" level="0" unlock="5" />
+        <Skill type="赤焰战场" level="0" unlock="10" />
+    </Card>
 
 
 
@@ -6225,6 +6286,21 @@
         <Skill type="腐化之地" level="0" unlock="0" />
         <Skill type="蚀月军团" level="0" unlock="5" />
         <Skill type="死亡之舞" level="0" unlock="10" />
+    </Card>
+    <Card id="6114" name="暗堕之矢" wikiId="" race="魔族" speed="4" star="5" cost="20" incrCost="2" at="650" hp="1850" incrAT="50" incrHP="50">
+        <Skill type="魔女之躯" level="0" unlock="0" />
+        <Skill type="逆转之刃" level="0" unlock="5" />
+        <Skill type="暗影奇袭" level="0" unlock="10" />
+    </Card>
+    <Card id="6115" name="易命之昭" wikiId="" race="魔族" speed="2" star="5" cost="20" incrCost="2" at="600" hp="1650" incrAT="50" incrHP="50">
+        <Skill type="天命判决" level="0" unlock="0" />
+        <Skill type="厄运缠身" level="0" unlock="5" />
+        <Skill type="如影随形" level="0" unlock="10" />
+    </Card>
+    <Card id="6116" name="虚影" wikiId="" race="魔族" speed="6" star="5" cost="20" incrCost="2" at="600" hp="1650" incrAT="50" incrHP="50">
+        <Skill type="神谴" level="0" unlock="0" />
+        <Skill type="厄运缠身" level="0" unlock="5" />
+        <Skill type="邪影智蚀" level="0" unlock="10" />
     </Card>
 
     <!-- 测试卡 -->
