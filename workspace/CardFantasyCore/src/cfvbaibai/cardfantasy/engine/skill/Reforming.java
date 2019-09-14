@@ -15,9 +15,17 @@ public class Reforming {
         if (card == null || card.isDead())  {
             throw new CardFantasyRuntimeException("card should not be null or dead!");
         }
-        if (card.hasUsed(skillUseInfo)) {
+        int number = skillUseInfo.getSkillNumber();
+        if(number==0)
+        {
             return;
         }
+        if(number<0)
+        {
+            number = 1;
+            skillUseInfo.setSkillNumber(1);
+        }
+        skillUseInfo.setSkillNumber(number-1);
         Skill skill = skillUseInfo.getSkill();
         resolver.getStage().getUI().useSkill(card, skill, true);
         GameUI ui = resolver.getStage().getUI();
@@ -43,12 +51,10 @@ public class Reforming {
             }
             card.reset();
             card.addStatus(summonStatusItem);
-            card.setUsed(skillUseInfo);
             resolver.summonCard(card.getOwner(), card, card, true, skill,1);
         } else {
             //处理顽强司命情况下，卡牌已经回到场上，不需要再次结算降临技能。
             if (card.isAlive()) {
-                card.setUsed(skillUseInfo);
                 return;
             }
             //强制移除卡牌，防止新生以后出现卡牌复制。
@@ -65,14 +71,6 @@ public class Reforming {
     }
 
     public static void reset( SkillUseInfo skillUseInfo, CardInfo card) throws HeroDieSignal {
-        if(card.hasUsed(skillUseInfo))
-        {
-            for (SkillEffect effect : card.getEffects()) {
-                if (effect.getCause() == skillUseInfo && effect.getType() == SkillEffectType.SKILL_USED) {
-                    card.removeEffect(effect);
-                    return;
-                }
-            }
-        }
+        skillUseInfo.setSkillNumber(1);
     }
 }

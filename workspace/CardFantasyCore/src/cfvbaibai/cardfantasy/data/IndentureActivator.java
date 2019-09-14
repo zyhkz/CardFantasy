@@ -35,8 +35,14 @@ public class IndentureActivator {
     public static IndentureActivator enemyField(int threshold, Race race) {
         return new IndentureActivator(RuneActivationType.Field, threshold, race, true);
     }
+    public static IndentureActivator enemyFieldLess(int threshold, Race race) {
+        return new IndentureActivator(RuneActivationType.FieldLess, threshold, race, true);
+    }
     public static IndentureActivator myField(int threshold, Race race) {
         return new IndentureActivator(RuneActivationType.Field, threshold, race, false);
+    }
+    public static IndentureActivator myFieldLess(int threshold, Race race) {
+        return new IndentureActivator(RuneActivationType.FieldLess, threshold, race, false);
     }
     public static IndentureActivator enemyGrave(int threshold, Race race) {
         return new IndentureActivator(RuneActivationType.Grave, threshold, race, true);

@@ -4257,7 +4257,6 @@ public class SkillResolver {
     public void summonCardReforming(Player player, CardInfo summonedCard, CardInfo reviver, boolean isMinion, SkillUseInfo summonSkillUseInfo, int flag) throws HeroDieSignal {
         Player enemy = this.getStage().getOpponent(player);
         setCardToField(summonedCard, flag);
-        summonedCard.setUsed(summonSkillUseInfo);
         this.resolveFirstClassSummoningSkills(summonedCard, player, enemy, isMinion);
         // this.resolveSecondClassSummoningSkills(summonedCards, player.getField(), enemy.getField(), summonSkill, true);
         //取消召唤类技能直接发动二段技能。
@@ -4751,6 +4750,21 @@ public class SkillResolver {
                 int activatorCardCount = 0;
                 activatorCardCount = player.getField().getAliveCards().size();
                 if (activatorCardCount > indenture.getEffectNumber()) {
+                    SummonOfIndenture.apply(this, indenture);
+                }
+            } else if (activator.getType() == RuneActivationType.FieldLess) {
+                Player playerToCheck = activator.shouldCheckEnemy() ? enemy : player;
+                int activatorCardCount = 0;
+                if (activator.getRace() == null) {
+                    activatorCardCount = playerToCheck.getField().getAliveCards().size();
+                } else {
+                    for (CardInfo card : playerToCheck.getField().getAliveCards()) {
+                        if (card.getRace() == activator.getRace()) {
+                            ++activatorCardCount;
+                        }
+                    }
+                }
+                if (activatorCardCount < indenture.getEffectNumber()) {
                     SummonOfIndenture.apply(this, indenture);
                 }
             }

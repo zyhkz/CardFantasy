@@ -492,6 +492,7 @@ var allLayerAddition=function(){
     allObj['2']=layerAddition(168,160,160);
     allObj['3']=layerAddition(231,220,220);
     allObj['4']=layerAddition(294,280,280);
+    allObj['5']=layerAddition(379,300,300);
     allObj['90']=layerAddition(200,150,160);
     allObj['91']=layerAddition(200,160,160);
     allObj['92']=layerAddition(210,160,160);
@@ -679,7 +680,7 @@ $(document)
     $('#play-dungeons-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playDungeonsGame(1000);');
     setBattleOptionsText(dungeonsBattleOptions, 'dungeons-battle-options-text');
 
-    var showVictoryCondition = function() {
+    var showDungeonsVictoryCondition = function() {
         var map = getDungeons();
         $.get('GetDungeonsVictoryCondition?map=' + map, function(data) {
             console.log("Map victory condition for '" + map + "': " + JSON.stringify(data));
@@ -693,13 +694,17 @@ $(document)
 
     $(document).on('change', 'select.map-select', function(e) {
         // Get current option value: this.options[e.target.selectedIndex].text
-        showVictoryCondition();
+        showDungeonsVictoryCondition();
     });
-    showVictoryCondition();
+    showDungeonsVictoryCondition();
+    $(document).on('change', '#dungeons-id', function(e) {
+        showDungeonsVictoryCondition();
+    });
     $(document).on('change', 'select.layer-select', function(e) {
         // Get current option value: this.options[e.target.selectedIndex].text
 
         setSelectBuff($('#layer-select').val());
+        showDungeonsVictoryCondition();
     });
 })
 .on("pageinit", "#boss-battle", function(event) {

@@ -86,6 +86,20 @@
                                         <option value="4-7">4-7 耳语渡口</option>
                                         <option value="4-8">4-8 迷雾之谷</option>
                                     </optgroup>
+                                    <optgroup label="噩梦5图">
+                                        <option value="5-1">5-1 冒险者营地</option>
+                                        <option value="5-2">5-2 冒险者岗哨</option>
+                                        <option value="5-2n">5-2 冒险者岗哨(n服)</option>
+                                        <option value="5-3">5-3 黑石矿坑</option>
+                                        <option value="5-4">5-4 灰烬之谷</option>
+                                        <option value="5-5">5-5 黑炭洞窟</option>
+                                        <option value="5-6">5-6 遗忘神庙</option>
+                                        <option value="5-6n">5-6 遗忘神庙(n服)</option>
+                                        <option value="5-7">5-7 废弃墓园</option>
+                                        <option value="5-7n">5-7 废弃墓园(n服)</option>
+                                        <option value="5-8">5-8 灼热小径</option>
+                                        <option value="5-9">5-H 焦炭遗迹</option>
+                                    </optgroup>
                                 </select>
                             </td>
                         </tr>
@@ -108,6 +122,7 @@
                                     <option value="2">噩梦地图2图</option>
                                     <option value="3">噩梦地图3图</option>
                                     <option value="4">噩梦地图4图</option>
+                                    <option value="5">噩梦地图5图</option>
                                     <option value="90" >地下城90层</option>
                                     <option value="91" >地下城91层</option>
                                     <option value="92" >地下城92层</option>

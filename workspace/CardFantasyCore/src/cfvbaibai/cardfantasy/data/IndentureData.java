@@ -17,11 +17,15 @@ public enum IndentureData {
     蛮荒的挑战("", 10, 1, IndentureActivator.enemyField(10,  Race.SAVAGE)),
     地狱的净化("", 10, 1, IndentureActivator.enemyField(10,  Race.HELL)),
     恶魔的征讨者("", 10, 1, IndentureActivator.enemyField(10,  Race.DEMON)),
+    歼灭("", 0, -1, IndentureActivator.enemyFieldLess(0,  null)),
+    突击("", 10, 1, IndentureActivator.enemyField(10,  null)),
+    合击("", 10, 1, IndentureActivator.myField(10,  null)),
+    绝境("", 0, -1, IndentureActivator.myFieldLess(0,  null)),
 
     先锋("", 0, -4, IndentureActivator.roundLess(0)),
     后援("", 44, 4, IndentureActivator.roundMore(44)),
 
-    背水一战("", 0, 0, IndentureActivator.fieldDiff(0)),
+    背水一战("", 11, 1, IndentureActivator.fieldDiff(11)),
 
     王国的旗帜("", 5, 1, IndentureActivator.myHand(5, Race.KINGDOM)),
     森林的号角("", 5, 1, IndentureActivator.myHand(5, Race.FOREST)),
