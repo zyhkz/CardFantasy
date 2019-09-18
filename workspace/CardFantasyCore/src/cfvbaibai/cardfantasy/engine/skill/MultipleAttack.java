@@ -94,6 +94,7 @@ public final class MultipleAttack {
                                     break;
                                 }
                             }
+                            break;
                         }
                     }
                 }

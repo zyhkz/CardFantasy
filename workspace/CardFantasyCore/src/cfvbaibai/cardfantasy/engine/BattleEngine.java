@@ -480,8 +480,13 @@ public class BattleEngine {
                 if (myField.getCard(i)!=null&&(myField.getCard(i).containsUsableSkill(SkillType.连斩)||myField.getCard(i).containsUsableSkill(SkillType.原素裂变)
                         ||myField.getCard(i).containsUsableSkill(SkillType.死亡收割)||myField.getCard(i).containsUsableSkill(SkillType.连狙)
                         ||myField.getCard(i).containsUsableSkill(SkillType.战神) )) {
+                    int limitNumber = 0; //连斩在结算熊猫教父时会出现死循环，特殊处理限定连斩最多触发30次
                     boolean killCard = true;
                     for(;killCard;) {
+                        limitNumber++;
+                        if(limitNumber>30){
+                            break;
+                        }
                         killCard = randomAttackCard(myField, opField, i);
                         if (myField.getCard(i) == null || myField.getCard(i).isDead()){
                             killCard = false;

@@ -3100,10 +3100,10 @@ public class SkillResolver {
                     multAttackFlag = false;
                 } else if ((skillUseInfo.getType() == SkillType.二段斩 || skillUseInfo.getType() == SkillType.二段斩强袭) && multAttackFlag) {
                     MultipleAttack.apply(this, skillUseInfo, attacker, defenderHero,null, firstSkill, 70);
-                    break;
+                    multAttackFlag = false;
                 } else if ((skillUseInfo.getType() == SkillType.巨象猛冲)&& multAttackFlag) {
                     MultipleAttack.apply(this, skillUseInfo, attacker, defenderHero, null, firstSkill, 80);
-                    break;
+                    multAttackFlag = false;
                 } else if ((skillUseInfo.getType() == SkillType.精武) && multAttackFlag) {
                     MultipleAttack.apply(this, skillUseInfo, attacker, defenderHero, null, firstSkill, 100);
                     multAttackFlag = false;
