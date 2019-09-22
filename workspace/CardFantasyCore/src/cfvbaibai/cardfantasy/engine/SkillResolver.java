@@ -2019,6 +2019,8 @@ public class SkillResolver {
                 } else if (deadCardSkillUseInfo.getType() == SkillType.风暴之主) {
                     AddSelfCard.apply(this, deadCardSkillUseInfo, deadCard, SummonType.Summoning, 1,
                             "风暴主宰");
+                } else if (deadCardSkillUseInfo.getType() == SkillType.祈愿) {
+                    Supplication.apply(this, deadCardSkillUseInfo, deadCard, opponent);
                 }
             } else {
                 // IMPORTANT: Unbending card cannot trigger 自爆
