@@ -609,6 +609,7 @@ public enum SkillType {
     药桶爆弹("",70,0,700,0, SkillTag.魔法, SkillTag.魔王无效),
     死亡宣告("",100,0,700,0, SkillTag.魔法, SkillTag.魔王无效),
     烈焰审判("",70,0,700,0, SkillTag.魔法, SkillTag.魔王无效),
+    乱箭破敌("",85,0,1000,0, SkillTag.魔法, SkillTag.魔王无效),
     潜摧("", 0, SkillTag.即死, SkillTag.抗不屈, SkillTag.不动),
     侧击("", 0, SkillTag.抗不屈),
     夹击("", 0, SkillTag.抗不屈,SkillTag.法术扼杀),
@@ -1303,6 +1304,9 @@ public enum SkillType {
     //给场上随机卡牌添加多个技能
     善任("",SkillType.祈愿,1,SkillType.加速,1),
     知人善任("",3,0,SkillType.司命,0,SkillType.善任,0),
+
+    //给对方场上随机卡牌添加技能
+    名重天下("",3,0,SkillType.溃散,0,null,0),
 
     金魔装甲("", 50,0),
     //给自身场上所有卡牌添加技能除自己以外

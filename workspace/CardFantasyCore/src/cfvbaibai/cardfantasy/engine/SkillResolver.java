@@ -224,9 +224,6 @@ public class SkillResolver {
                         Cooperation.apply(this, skillUseInfo, card, "风暴主宰", false);
                     } else if (skillUseInfo.getType() == SkillType.天下英主) {
                         Cooperation.applyVague(this, skillUseInfo, card, "五子良将", false);
-                    } else if (skillUseInfo.getType() == SkillType.知人善任) {
-                        AddFiledCardMultSkill.apply(this, skillUseInfo, card, skillUseInfo.getAttachedUseInfo1().getSkill()
-                                , skillUseInfo.getAttachedUseInfo2().getAttachedUseInfo1().getSkill(), skillUseInfo.getAttachedUseInfo2().getAttachedUseInfo2().getSkill());
                     } else if (skillUseInfo.getType() == SkillType.厄运缠身) {
                         SoulChains.apply(this, skillUseInfo, attacker, defender, 5, 4);
                     } else if (skillUseInfo.getType() == SkillType.神鬼之医) {
@@ -1249,6 +1246,13 @@ public class SkillResolver {
                 }
             } else if (skillUseInfo.getType() == SkillType.三昧真火) {
                 ThunderStrike.apply(skillUseInfo, this, attacker, defender, 4);
+            } else if (skillUseInfo.getType() == SkillType.名重天下) {
+                AddOpponentFiledCardSkill.apply(this, skillUseInfo, attacker, skillUseInfo.getAttachedUseInfo1().getSkill(),defender);
+            } else if (skillUseInfo.getType() == SkillType.知人善任) {
+                AddFiledCardMultSkill.apply(this, skillUseInfo, attacker, skillUseInfo.getAttachedUseInfo1().getSkill()
+                        , skillUseInfo.getAttachedUseInfo2().getAttachedUseInfo1().getSkill(), skillUseInfo.getAttachedUseInfo2().getAttachedUseInfo2().getSkill());
+            } else if (skillUseInfo.getType() == SkillType.乱箭破敌) {
+                UnderworldCall.apply(this, skillUseInfo.getSkill(), attacker, defender, 7);
             }
         }
         if (!attacker.isDead() && status == 0) {

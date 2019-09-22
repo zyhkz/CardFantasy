@@ -4124,6 +4124,11 @@
         <Skill type="一夫当关" level="0" unlock="5"  />
         <Skill type="死亡收割" level="0" unlock="10" />
     </Card>
+    <Card id="3655" name="四世三公·袁绍" wikiId="" race="蛮荒" speed="3" star="5" cost="19" incrCost="2" at="540" hp="1525" incrAT="43" incrHP="47">
+        <Skill type="名重天下" level="0" unlock="0"  />
+        <Skill type="骤雨" level="10" unlock="5"  />
+        <Skill type="乱箭破敌" level="0" unlock="10" />
+    </Card>
 
 
 

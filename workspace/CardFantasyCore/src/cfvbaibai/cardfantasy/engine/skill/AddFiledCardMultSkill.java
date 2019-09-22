@@ -50,7 +50,7 @@ public final class AddFiledCardMultSkill {
             }
             if(cardSkill3!=null&&!thisCard.containsUsableSkill(cardSkill3.getType())){
                 thisSkillUserInfo3 = new SkillUseInfo(thisCard,cardSkill3);
-                thisSkillUserInfo3.setGiveSkill(1);
+                thisSkillUserInfo3.setGiveSkill(2);
                 thisCard.addSkill(thisSkillUserInfo3);
             }
         }
