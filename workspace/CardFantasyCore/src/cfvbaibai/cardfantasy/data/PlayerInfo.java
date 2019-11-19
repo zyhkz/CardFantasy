@@ -1,5 +1,7 @@
 package cfvbaibai.cardfantasy.data;
 
+import cfvbaibai.cardfantasy.engine.EquipmentInfo;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,6 +18,7 @@ public class PlayerInfo {
     private Collection<Card> cards;
     private Collection<Rune> runes;
     private Collection<Indenture> indentures;
+    private Collection<Equipment> equipments;
     private static int[] hps = new int[] {
         0,
         1000,  1070,  1140,  1210,  1280,  1350,  1420,  1490,  1560,  1630,
@@ -75,18 +78,18 @@ public class PlayerInfo {
         for (Card card : cards) {
             cardList.add(card);
         }
-        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,null, cardList);
+        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,null,null, cardList);
     }
     
     public PlayerInfo(boolean isNormalPlayer, String id, int level, List<Skill> cardBuffs, int heroHpAdj, Collection <Rune> runes, Collection <Card> cards) {
-        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,null, cards);
+        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,null,null, cards);
     }
 
-    public PlayerInfo(boolean isNormalPlayer, String id, int level, List<Skill> cardBuffs, int heroHpAdj, Collection <Rune> runes,Collection <Indenture> indentures, Collection <Card> cards) {
-        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,indentures, cards);
+    public PlayerInfo(boolean isNormalPlayer, String id, int level, List<Skill> cardBuffs, int heroHpAdj, Collection <Rune> runes,Collection <Indenture> indentures, Collection <Equipment> equipments, Collection <Card> cards) {
+        init(isNormalPlayer, id, level, cardBuffs, heroHpAdj, runes,indentures,equipments, cards);
     }
     
-    private final void init(boolean isNormalPlayer, String id, int level, List<Skill> cardBuffs, int heroHpAdj, Collection <Rune> runes,Collection <Indenture> indentures, Collection <Card> cards) {
+    private final void init(boolean isNormalPlayer, String id, int level, List<Skill> cardBuffs, int heroHpAdj, Collection <Rune> runes,Collection <Indenture> indentures,Collection <Equipment> equipments, Collection <Card> cards) {
         this.isNormalPlayer = isNormalPlayer;
         this.id = id;
         this.level = level;
@@ -102,6 +105,11 @@ public class PlayerInfo {
             this.indentures = new ArrayList<Indenture>();
         } else{
             this.indentures = new ArrayList<Indenture>(indentures);
+        }
+        if(equipments == null){
+            this.equipments = new ArrayList<Equipment>();
+        } else{
+            this.equipments = new ArrayList<Equipment>(equipments);
         }
     }
     
@@ -161,6 +169,10 @@ public class PlayerInfo {
 
     public Collection<Indenture> getIndentures() {
         return indentures;
+    }
+
+    public Collection<Equipment> getEquipments() {
+        return equipments;
     }
 
     public int getLevel() {

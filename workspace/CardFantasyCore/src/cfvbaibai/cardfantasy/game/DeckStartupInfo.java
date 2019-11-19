@@ -5,6 +5,7 @@ import java.util.List;
 
 import cfvbaibai.cardfantasy.Combination;
 import cfvbaibai.cardfantasy.data.Card;
+import cfvbaibai.cardfantasy.data.Equipment;
 import cfvbaibai.cardfantasy.data.Indenture;
 import cfvbaibai.cardfantasy.data.Rune;
 import cfvbaibai.cardfantasy.engine.CardInfo;
@@ -14,20 +15,24 @@ public class DeckStartupInfo {
     private List<Rune> runes;
     private List<Card> cards;
     private List<Indenture> indentures;
+    private List<Equipment> equipments;
     public DeckStartupInfo() {
         this.runes = new ArrayList<Rune>();
         this.cards = new ArrayList<Card>();
         this.indentures = new ArrayList<Indenture>();
+        this.equipments = new ArrayList<Equipment>();
     }
     public DeckStartupInfo(List<Rune> runes, List<Card> cards) {
         this.runes = new ArrayList<Rune>(runes);
         this.cards = new ArrayList<Card>(cards);
         this.indentures = new ArrayList<Indenture>();
+        this.equipments = new ArrayList<Equipment>();
     }
-    public DeckStartupInfo(List<Rune> runes, List<Card> cards,List<Indenture> indentures) {
+    public DeckStartupInfo(List<Rune> runes, List<Card> cards,List<Indenture> indentures,List<Equipment> equipment) {
         this.runes = new ArrayList<Rune>(runes);
         this.cards = new ArrayList<Card>(cards);
         this.indentures = new ArrayList<Indenture>(indentures);
+        this.equipments = new ArrayList<Equipment>(equipment);
     }
     public List <Rune> getRunes() {
         return new ArrayList<Rune>(this.runes);
@@ -47,6 +52,13 @@ public class DeckStartupInfo {
     }
     public void addIndentures(Indenture indenture) {
         this.indentures.add(indenture);
+    }
+
+    public List <Equipment> getEquipments() {
+        return new ArrayList<Equipment>(this.equipments);
+    }
+    public void addEquipments(Equipment equipment) {
+        this.equipments.add(equipment);
     }
 
     public List<DeckStartupInfo> generateCombinations(int runeCount, int cardCount) {

@@ -38,7 +38,7 @@ public final class DeckBuilder {
         "$";
 
     /**
-     * C卡片名-等级+技能名技能等级*数量
+     * Q卡片名-等级+技能名技能等级*数量
      */
     private final static String INDEBTURE_REGEX =
 //            "^" +
@@ -56,6 +56,18 @@ public final class DeckBuilder {
                     "(\\-(?<CardLevel>\\d+))?" +
                     "(\\*(?<Count>\\d+))?" +
                     "(\\?IN(?<IndentureName>[^\\d\\-*?]+)(?<IndentureLevel>\\d+)?)?" +
+                    "$";
+
+    /**
+     * Z-装备血量+技能名技能等级*数量
+     */
+    private final static String EQUIPMENT_REGEX =
+            "^" +
+                    "(\\-HP(?<HP>\\d+))?" +
+                    "(\\+(?<ExtraSkillName>[^\\d\\-*?]+)(?<ExtraSkillLevel>\\d+)?)?" +
+                    "(\\+(?<ExtraSkillName2>[^\\d\\-*?]+)(?<ExtraSkillLevel2>\\d+)?)?" +
+                    "(\\+(?<ExtraSkillName3>[^\\d\\-*?]+)(?<ExtraSkillLevel3>\\d+)?)?" +
+                    "(\\*(?<Count>\\d+))?" +
                     "$";
 
     private static Pattern CARD_PATTERN;
@@ -84,12 +96,26 @@ public final class DeckBuilder {
         }
     }
 
+    private static Pattern EQUIPMENT_PATTERN;
+
+    static {
+        try {
+            EQUIPMENT_PATTERN = Pattern.compile(EQUIPMENT_REGEX);
+            store = CardDataStore.loadDefault();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
     public static String[] splitDescsText(String descsText) {
         descsText = descsText.replace(' ', ',').replace('　', ',').replace('，', ',').replace('、', ',');
         descsText = descsText.replace("\r\n", ",").replace("\n", ",");
         descsText = descsText.replace('＋', '+').replace('＊', '*').replace('－', '-')
                 .replace('？', '?').replace('h', 'H').replace('p', 'P').replace('a', 'A').replace('d', 'D')
-                .replace('t', 'T').replace('s', 'S').replace('k', 'K').replace('i', 'I').replace('n', 'N');
+                .replace('t', 'T').replace('s', 'S').replace('k', 'K').replace('i', 'I').replace('n', 'N')
+                .replace('z', 'Z');
         descsText = descsText.replace(":", "").replace("：", "").replace("·", "");
         descsText = Zht2Zhs.getInstance().convert(descsText);
         return descsText.split(",");
@@ -111,6 +137,8 @@ public final class DeckBuilder {
                 parseAndAddRune(deck, desc.substring(1));
             } else if (desc.length() > 1 && desc.charAt(0) == 'Q') {
                 parseAndAddIndenture(deck, desc.substring(1));
+            } else if (desc.length() > 1 && desc.charAt(0) == 'Z') {
+                parseAndAddEquipment(deck, desc.substring(1));
             } else {
                 if (!parseAndAddCard(deck, desc)) {
                     if (!parseAndAddRune(deck, desc)) {
@@ -440,7 +468,7 @@ public final class DeckBuilder {
     /**
      * Indenture description text pattern:
      * Q卡片名-等级+技能名技能等级*数量?IN契约名称
-     * Example: C金属巨龙-10+暴风雪1*5?IN契约名称
+     * Example: Q金属巨龙-10+暴风雪1*5?IN契约名称
      * @param desc
      * @param desc
      */
@@ -462,9 +490,6 @@ public final class DeckBuilder {
         }
         if(count == 0){
             return  ret;
-        }
-        if (!matcher.matches()) {
-            throw new DeckBuildRuntimeException("无效的卡牌: " + desc);
         }
         String cardName = matcher.group("CardName");
         String cardLevelText = matcher.group("CardLevel");
@@ -543,6 +568,156 @@ public final class DeckBuilder {
             Card card = new Card(data, cardLevel, extraSkill, prefix, String.valueOf(getCardNameSuffix()),-1,-1);
             Indenture indenture = new Indenture(indentureData,card,indentureLevel);
             ret.add(indenture);
+        }
+
+        return ret;
+    }
+
+    private static boolean parseAndAddEquipment(DeckStartupInfo deck, String desc) {
+        List<Equipment> equipments = parseEquipmentDesc(desc);
+
+        if (equipments == null) {
+            return false;
+        }
+
+        for (Equipment equipment : equipments) {
+            deck.addEquipments(equipment);
+        }
+
+        return true;
+    }
+
+    /**
+     * Indenture description text pattern:
+     * Z-装备血量+技能经常技能等级
+     * Example: Z-Hp500+暴风雪1
+     * @param desc
+     * @param desc
+     */
+    public static List<Equipment> parseEquipmentDesc(String desc) {
+        List<Equipment> ret = new ArrayList<Equipment>();
+        String equipmentDesc = desc;
+        Matcher matcher = EQUIPMENT_PATTERN.matcher(equipmentDesc);
+        if (!matcher.matches()) {
+            throw new DeckBuildRuntimeException("无效的装备: " + desc);
+        }
+        String countText = matcher.group("Count");
+        int count = 1;
+        if (countText != null) {
+            try {
+                count = Integer.parseInt(countText);
+            } catch (NumberFormatException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        if(count == 0){
+            return  ret;
+        }
+        String hpText = matcher.group("HP");
+        int hp = 0;
+        if (hpText != null) {
+            try {
+                hp = Integer.parseInt(hpText);
+            } catch (NumberFormatException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+
+        String extraSkillName = matcher.group("ExtraSkillName");
+        SkillType extraSkillType = null;
+        if (extraSkillName != null) {
+            try {
+                extraSkillType = SkillType.valueOf(extraSkillName);
+            } catch (IllegalArgumentException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+
+        List<CardSkill> cardSkillList = new ArrayList<>();
+        String extraSkillLevelText = matcher.group("ExtraSkillLevel");
+        int extraSkillLevel = 0;
+        if (extraSkillLevelText != null) {
+            try {
+                extraSkillLevel = Integer.parseInt(extraSkillLevelText);
+            } catch (NumberFormatException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        if (extraSkillLevel < 0 || extraSkillLevel > 10) {
+            throw new DeckBuildRuntimeException("无效的装备：" + desc + "，技能等级不得大于10");
+        }
+
+        CardSkill extraSkill = null;
+        if (extraSkillType != null) {
+            extraSkill = new CardSkill(extraSkillType, extraSkillLevel, 15, false, false, false, false);
+        }
+
+        String extraSkillName2 = matcher.group("ExtraSkillName2");
+        SkillType extraSkillType2 = null;
+        if (extraSkillName2 != null) {
+            try {
+                extraSkillType2 = SkillType.valueOf(extraSkillName2);
+            } catch (IllegalArgumentException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        String extraSkillLevel2Text = matcher.group("ExtraSkillLevel2");
+        int extraSkillLevel2 = 0;
+        if (extraSkillLevel2Text != null) {
+            try {
+                extraSkillLevel2 = Integer.parseInt(extraSkillLevel2Text);
+            } catch (NumberFormatException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        if (extraSkillLevel2 < 0 || extraSkillLevel2 > 10) {
+            throw new DeckBuildRuntimeException("无效的装备：" + desc + "，技能等级不得大于10");
+        }
+
+        CardSkill extraSkill2 = null;
+        if (extraSkillType2 != null) {
+            extraSkill2 = new CardSkill(extraSkillType2, extraSkillLevel2, 15, false, false, false, false);
+        }
+
+        String extraSkillName3 = matcher.group("ExtraSkillName3");
+        SkillType extraSkillType3 = null;
+        if (extraSkillName3 != null) {
+            try {
+                extraSkillType3 = SkillType.valueOf(extraSkillName3);
+            } catch (IllegalArgumentException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        String extraSkillLevel3Text = matcher.group("ExtraSkillLevel3");
+        int extraSkillLevel3 = 0;
+        if (extraSkillLevel3Text != null) {
+            try {
+                extraSkillLevel3 = Integer.parseInt(extraSkillLevel3Text);
+            } catch (NumberFormatException e) {
+                throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
+            }
+        }
+        if (extraSkillLevel3 < 0 || extraSkillLevel3 > 10) {
+            throw new DeckBuildRuntimeException("无效的装备：" + desc + "，技能等级不得大于10");
+        }
+
+        CardSkill extraSkill3 = null;
+        if (extraSkillType3 != null) {
+            extraSkill3 = new CardSkill(extraSkillType3, extraSkillLevel3, 15, false, false, false, false);
+        }
+
+        for (int j = 0; j < count; ++j) {
+            Equipment equipment = new Equipment(hp);
+            if(extraSkill!=null){
+                equipment.insertSkill(extraSkill);
+            }
+            if(extraSkill2!=null){
+                equipment.insertSkill(extraSkill2);
+            }
+            if(extraSkill3!=null){
+                equipment.insertSkill(extraSkill3);
+            }
+            ret.add(equipment);
         }
 
         return ret;

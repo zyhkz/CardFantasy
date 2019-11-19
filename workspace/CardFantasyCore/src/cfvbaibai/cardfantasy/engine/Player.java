@@ -22,6 +22,7 @@ public class Player extends EntityInfo {
     private OutField outField;
     private RuneBox runeBox;
     private IndentureBox indentureBox;
+    private EquipmentBox equipmentBox;
     private List<SkillUseInfo> cardBuffs;
     private int hp;
     private List<CardInfo> primaryCards;
@@ -41,7 +42,8 @@ public class Player extends EntityInfo {
         this.outField = new OutField();
         this.runeBox = new RuneBox(this, playerInfo.getRunes());
         this.indentureBox = new IndentureBox(this, playerInfo.getIndentures());
-        this.hp = playerInfo.getMaxHP();
+        this.equipmentBox = new EquipmentBox(this, playerInfo.getEquipments());
+        this.hp = playerInfo.getMaxHP()+this.equipmentBox.getAddHps();
         this.cardBuffs = new ArrayList<SkillUseInfo>();
         this.productCards = new ArrayList<CardInfo>();
         this.counterAttackHero = new ArrayList<SkillUseInfo>();
@@ -84,6 +86,10 @@ public class Player extends EntityInfo {
         return this.indentureBox;
     }
 
+    public EquipmentBox getEquipmentBox() {
+        return equipmentBox;
+    }
+
     public Hand getHand() {
         return this.hand;
     }
@@ -113,7 +119,7 @@ public class Player extends EntityInfo {
     }
     
     public int getMaxHP() {
-        return this.playerInfo.getMaxHP();
+        return this.playerInfo.getMaxHP()+this.equipmentBox.getAddHps();
     }
 
     public String getId() {

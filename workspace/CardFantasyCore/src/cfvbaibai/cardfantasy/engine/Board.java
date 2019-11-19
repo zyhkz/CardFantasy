@@ -107,6 +107,24 @@ public class Board {
         sb.appendLine("");
     }
 
+    private void showIndentureBox(StringBufferEx sb, IndentureBox indentureBox) {
+        sb.append("契约: ");
+        for (IndentureInfo indentureInfo : indentureBox.getIndentureInfos()) {
+            sb.append(indentureInfo.getShortDesc());
+            sb.append(", ");
+        }
+        sb.appendLine("");
+    }
+
+    private void showEquipment(StringBufferEx sb, EquipmentBox equipmentBox) {
+        sb.append("装备: ");
+        for (EquipmentInfo equipmentInfo : equipmentBox.getEquipmentInfos()) {
+            sb.append(equipmentInfo.getShortDesc());
+            sb.append(", ");
+        }
+        sb.appendLine("");
+    }
+
     private void showField(StringBufferEx sb, Field field) {
         int i = 0;
         List<CardInfo> cards = field.getAliveCards();
