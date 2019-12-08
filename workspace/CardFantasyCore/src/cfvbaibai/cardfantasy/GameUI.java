@@ -147,7 +147,7 @@ public abstract class GameUI {
     public abstract void returnCard(EntityInfo attacker, CardInfo defender, Skill cardSkill);
 
 
-    public abstract void disableBlock(CardInfo attacker, CardInfo defender, Skill attackSkill, Skill blockSkill);
+    public abstract void disableBlock(CardInfo attacker, EntityInfo defender, Skill attackSkill, Skill blockSkill);
 
     public abstract void confused(CardInfo card);
 

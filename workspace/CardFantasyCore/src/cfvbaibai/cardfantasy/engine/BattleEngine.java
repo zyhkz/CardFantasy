@@ -195,6 +195,7 @@ public class BattleEngine {
     }
 
     private Phase standby() throws HeroDieSignal {
+        this.stage.getResolver().resolveEquipmentSkills(this.getActivePlayer(), this.getInactivePlayer());
         this.stage.getResolver().activateRunes(this.getActivePlayer(), this.getInactivePlayer());
         this.stage.getResolver().resolvePreAttackRune(this.getActivePlayer(), this.getInactivePlayer());
         this.stage.getResolver().resolvePreAttackSkills(this.getActivePlayer(), this.getInactivePlayer());

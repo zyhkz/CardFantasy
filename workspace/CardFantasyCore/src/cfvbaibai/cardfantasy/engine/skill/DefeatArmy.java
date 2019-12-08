@@ -6,12 +6,13 @@ import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.data.SkillTag;
 import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.CardInfo;
+import cfvbaibai.cardfantasy.engine.EntityInfo;
 import cfvbaibai.cardfantasy.engine.RuneInfo;
 import cfvbaibai.cardfantasy.engine.SkillResolver;
 
 public final class DefeatArmy {
     public static boolean isDefenSkillDisabled(SkillResolver resolver, Skill attackSkill,
-                                               Skill blockSkill, CardInfo attacker, CardInfo defender) {
+                                               Skill blockSkill, CardInfo attacker, EntityInfo defender) {
         int rate = attackSkill.getImpact();
         boolean bingo = resolver.getStage().getRandomizer().roll100(rate);
         if (attacker == null) {

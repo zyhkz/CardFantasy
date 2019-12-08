@@ -255,7 +255,7 @@ public class DummyGameUI extends GameUI {
     }
 
     @Override
-    public void disableBlock(CardInfo attacker, CardInfo defender, Skill attackSkill, Skill blockSkill) {
+    public void disableBlock(CardInfo attacker, EntityInfo defender, Skill attackSkill, Skill blockSkill) {
         // TODO Auto-generated method stub
 
     }

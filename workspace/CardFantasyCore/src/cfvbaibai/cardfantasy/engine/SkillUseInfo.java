@@ -13,6 +13,7 @@ public class SkillUseInfo {
     private SkillUseInfo attachedUseInfo2;
     private  int giveSkill;//判断是否是附加技能
     private  int skillNumber;//限定技能可以释放的次数
+    private  boolean isUsed; //是否已经使用技能
 
 
     public EntityInfo getOwner() {
@@ -32,6 +33,7 @@ public class SkillUseInfo {
         this.owner = owner;
         this.giveSkill = 0;
         this.skillNumber=-1;
+        this.isUsed = false;
         if (this.skill.getAttachedSkill1() != null) {
             this.attachedUseInfo1 = new SkillUseInfo(owner, this.skill.getAttachedSkill1());
         }
@@ -77,5 +79,13 @@ public class SkillUseInfo {
 
     public  void setGiveSkill(int giveSkill){
         this.giveSkill =giveSkill;
+    }
+
+    public boolean getIsUsed() {
+        return this.isUsed;
+    }
+
+    public void setIsUsed(boolean used) {
+        this.isUsed = used;
     }
 }

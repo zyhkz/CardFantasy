@@ -627,6 +627,7 @@ public final class DeckBuilder {
         SkillType extraSkillType = null;
         if (extraSkillName != null) {
             try {
+                extraSkillName = "装备" + extraSkillName;
                 extraSkillType = SkillType.valueOf(extraSkillName);
             } catch (IllegalArgumentException e) {
                 throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
@@ -656,6 +657,7 @@ public final class DeckBuilder {
         SkillType extraSkillType2 = null;
         if (extraSkillName2 != null) {
             try {
+                extraSkillName2 = "装备" + extraSkillName2;
                 extraSkillType2 = SkillType.valueOf(extraSkillName2);
             } catch (IllegalArgumentException e) {
                 throw new DeckBuildRuntimeException("无效的装备: " + desc, e);
@@ -683,6 +685,7 @@ public final class DeckBuilder {
         SkillType extraSkillType3 = null;
         if (extraSkillName3 != null) {
             try {
+                extraSkillName3 = "装备" + extraSkillName3;
                 extraSkillType3 = SkillType.valueOf(extraSkillName3);
             } catch (IllegalArgumentException e) {
                 throw new DeckBuildRuntimeException("无效的装备: " + desc, e);

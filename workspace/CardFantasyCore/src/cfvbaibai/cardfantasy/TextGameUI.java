@@ -324,7 +324,7 @@ public class TextGameUI extends GameUI {
     }
 
     @Override
-    public void disableBlock(CardInfo attacker, CardInfo defender, Skill attackSkill, Skill blockSkill) {
+    public void disableBlock(CardInfo attacker, EntityInfo defender, Skill attackSkill, Skill blockSkill) {
         sayF("%s 的 %s 被 %s 的 %s 破解了.", defender.getShortDesc(), blockSkill.getShortDesc(), attacker.getShortDesc(),
                 attackSkill.getShortDesc());
     }

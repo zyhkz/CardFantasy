@@ -8,7 +8,7 @@ import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.engine.*;
 
 public final class Insane {
-    public static void apply(SkillUseInfo skillUseInfo, SkillResolver resolver, CardInfo attacker, Player defender,
+    public static void apply(SkillUseInfo skillUseInfo, SkillResolver resolver, EntityInfo attacker, Player defender,
         int victimCount, int multiple) throws HeroDieSignal {
         Skill skill = skillUseInfo.getSkill();
         StageInfo stage = resolver.getStage();
@@ -26,43 +26,41 @@ public final class Insane {
             }
             int magicEchoSkillResult = resolver.resolveMagicEchoSkill(attacker, victim, skill);
             if (magicEchoSkillResult==1||magicEchoSkillResult==2) {
-                if(attacker.isDead())
-                {
-                    if (magicEchoSkillResult == 1) {
-                        continue;
-                    }
-                }
-                else{
-                    if (!resolver.resolveAttackBlockingSkills(victim, attacker, skill, 1).isAttackable()) {
+                if (attacker instanceof CardInfo) {
+                    CardInfo attackCard = (CardInfo) attacker;
+                    if (attackCard.isDead()) {
                         if (magicEchoSkillResult == 1) {
                             continue;
                         }
-                    }
-                    else if(attacker.isDead()||attacker.getStatus().containsStatus(CardStatusType.不屈)) {
-                        if (magicEchoSkillResult == 1) {
-                            continue;
-                        }
-                    }
-                    else {
-                        List<CardInfo> cardsAttackedByAttacker = resolver.getCardsOnSides(
-                                attacker.getOwner().getField(), attacker.getPosition());
-
-                        if (cardsAttackedByAttacker.size() == 0) {
-                            // Only victim itself is counted. No other cards around it. No effect.
+                    } else {
+                        if (!resolver.resolveAttackBlockingSkills(victim, attackCard, skill, 1).isAttackable()) {
                             if (magicEchoSkillResult == 1) {
                                 continue;
                             }
-                        }
-                        else {
-                            ui.useSkill(attacker, cardsAttackedByAttacker, null, true);
-                            if (multiple == 0) {
-                                multiple = skill.getImpact();
+                        } else if (attackCard.isDead() || attacker.getStatus().containsStatus(CardStatusType.不屈)) {
+                            if (magicEchoSkillResult == 1) {
+                                continue;
                             }
-                            int damage2 = attacker.getLevel1AT() * multiple / 100;
-                            for (CardInfo cardAttackedByAttacker : cardsAttackedByAttacker) {
-                                ui.attackCard(attacker, cardAttackedByAttacker, null, damage2);
-                                resolver.resolveDeathSkills(attacker, cardAttackedByAttacker, skill,
-                                        resolver.applyDamage(attacker, cardAttackedByAttacker, null, damage2));
+                        } else {
+                            List<CardInfo> cardsAttackedByAttacker = resolver.getCardsOnSides(
+                                    attacker.getOwner().getField(), attackCard.getPosition());
+
+                            if (cardsAttackedByAttacker.size() == 0) {
+                                // Only victim itself is counted. No other cards around it. No effect.
+                                if (magicEchoSkillResult == 1) {
+                                    continue;
+                                }
+                            } else {
+                                ui.useSkill(attacker, cardsAttackedByAttacker, null, true);
+                                if (multiple == 0) {
+                                    multiple = skill.getImpact();
+                                }
+                                int damage2 = attackCard.getLevel1AT() * multiple / 100;
+                                for (CardInfo cardAttackedByAttacker : cardsAttackedByAttacker) {
+                                    ui.attackCard(attacker, cardAttackedByAttacker, null, damage2);
+                                    resolver.resolveDeathSkills(attacker, cardAttackedByAttacker, skill,
+                                            resolver.applyDamage(attacker, cardAttackedByAttacker, null, damage2));
+                                }
                             }
                         }
                     }
