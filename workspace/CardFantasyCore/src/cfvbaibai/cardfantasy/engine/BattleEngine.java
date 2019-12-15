@@ -689,7 +689,7 @@ public class BattleEngine {
             int extraRound = this.stage.getRound() - thresholdRound;
             int heroDamage = 50 + extraRound * 30;
             if(this.stage.getRound()>100){
-                heroDamage = 1520 + (extraRound-49)*100;
+                heroDamage = 1520 + (extraRound - 49)*100;
             }
             Skill skill = Skill.自动扣血();
             this.stage.getResolver().attackHero(player, player, skill, heroDamage);
