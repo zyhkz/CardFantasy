@@ -359,6 +359,9 @@ public class BattleEngine {
             resolver.removeStatus(myField.getCard(i), CardStatusType.虚化);
             resolver.removeStatus(myField.getCard(i), CardStatusType.链接);
             resolver.removeStatus(myField.getCard(i), CardStatusType.蛇影);
+            resolver.resolveDebuff(myField.getCard(i), CardStatusType.远古);
+            resolver.resolveDebuff(myField.getCard(i), CardStatusType.咒怨);
+            resolver.resolveAddATDebuff(myField.getCard(i), CardStatusType.咒怨);
 
             Petrifaction.reset(myField.getCard(i),1); //重置技能
             resolver.removeStatus(myField.getCard(i), CardStatusType.石化);
@@ -396,6 +399,7 @@ public class BattleEngine {
             // 解除状态
             resolver.removeStatus(myField.getCard(i), CardStatusType.中毒);
             resolver.removeStatus(myField.getCard(i), CardStatusType.咒怨);
+            resolver.removeStatus(myField.getCard(i), CardStatusType.远古);
             ui.cardActionEnds(card);
         }
 
@@ -684,6 +688,9 @@ public class BattleEngine {
         if (this.stage.getRound() >= thresholdRound) {
             int extraRound = this.stage.getRound() - thresholdRound;
             int heroDamage = 50 + extraRound * 30;
+            if(this.stage.getRound()>100){
+                heroDamage = 1520 + (extraRound-49)*100;
+            }
             Skill skill = Skill.自动扣血();
             this.stage.getResolver().attackHero(player, player, skill, heroDamage);
         }

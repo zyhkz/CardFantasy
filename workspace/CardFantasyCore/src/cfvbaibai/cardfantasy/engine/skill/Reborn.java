@@ -39,11 +39,9 @@ public final class Reborn {
         }
         int rate;
         Skill cardSkill = skillUseInfo.getSkill();
-        if(cardSkill.getType()== SkillType.不灭||cardSkill.getType()== SkillType.顽强)
-        {
+        if(cardSkill.getType()== SkillType.不灭||cardSkill.getType()== SkillType.顽强) {
             rate = cardSkill.getImpact3();
-        }
-        else{
+        } else{
             rate = cardSkill.getImpact();
         }
 

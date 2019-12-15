@@ -2825,7 +2825,7 @@
     <Card id="2665" name="刻耳柏洛斯" wikiId="" race="森林" speed="4" star="5" cost="21" incrCost="2" at="600" hp="1600" incrAT="40" incrHP="50">
         <Skill type="三位一体" level="0" unlock="0" />
         <Skill type="冥界三重奏" level="0" unlock="5" />
-        <Skill type="血禁秘术" level="0" unlock="10" />
+        <Skill type="血祭禁术" level="0" unlock="10" />
     </Card>
     <Card id="2666" name="齐天大圣" wikiId="" race="森林" speed="4" star="5" cost="21" incrCost="2" at="600" hp="1600" incrAT="45" incrHP="48">
         <Skill type="花果山美猴王" level="0" unlock="0" />
@@ -5579,6 +5579,26 @@
         <Skill type="一夫之勇" level="0" unlock="0" />
         <Skill type="精武" level="0" unlock="5" />
         <Skill type="赤焰战场" level="0" unlock="10" />
+    </Card>
+    <Card id="4692" name="深海之王" wikiId="" race="地狱" speed="3" star="5" cost="18" incrCost="2" at="525" hp="1555" incrAT="40" incrHP="46">
+        <Skill type="邪恶献祭" level="0" unlock="0" />
+        <Skill type="吞噬" level="0" unlock="5" />
+        <Skill type="诡谲之匿" level="0" unlock="10" />
+    </Card>
+    <Card id="4693" name="克苏鲁" wikiId="" race="地狱" speed="3" star="5" cost="21" incrCost="2" at="605" hp="1625" incrAT="45" incrHP="47">
+        <Skill type="古神的低语" level="0" unlock="0" />
+        <Skill type="古神的召唤" level="0" unlock="5" />
+        <Skill type="星象归位" level="0" unlock="10" />
+    </Card>
+    <Card id="4694" name="海啸" wikiId="" race="地狱" speed="3" star="5" cost="19" incrCost="2" at="595" hp="1605" incrAT="43" incrHP="45">
+        <Skill type="古神的低语伪" level="0" unlock="0" />
+        <Skill type="精神侵蚀" level="0" unlock="5" />
+        <Skill type="深潜之力" level="0" unlock="10" />
+    </Card>
+    <Card id="4695" name="魅影之刺" wikiId="" race="地狱" speed="3" star="5" cost="19" incrCost="2" at="510" hp="1600" incrAT="40" incrHP="45">
+        <Skill type="风力失控" level="0" unlock="0" />
+        <Skill type="目标锁定" level="0" unlock="5" />
+        <Skill type="追风利刃" level="0" unlock="10" />
     </Card>
 
 

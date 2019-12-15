@@ -170,6 +170,15 @@ public class CardStatusItem {
         return new CardStatusItem(CardStatusType.咒怨, effect, cause);
     }
 
+
+    public static CardStatusItem ancientSummon(SkillUseInfo cause) {
+        return new CardStatusItem(CardStatusType.海啸, 0, cause);
+    }
+
+    public static CardStatusItem ancient(int effect,SkillUseInfo cause) {
+        return new CardStatusItem(CardStatusType.远古, effect, cause);
+    }
+
     public static CardStatusItem Rapture(SkillUseInfo cause) {
         return new CardStatusItem(CardStatusType.离魂, 0, cause);
     }

@@ -37,6 +37,8 @@ public enum CardStatusType {
     魔族(false, "族"),
     蛇影(false, "蛇"),
     石化(false, "石"),
+    远古(false, "远"),
+    海啸(false, "啸"),
     厄运(false, "厄");
     
 
