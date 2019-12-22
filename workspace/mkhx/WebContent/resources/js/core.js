@@ -677,7 +677,7 @@ $(document)
     $('#update-battle-options-button').attr('href', 'javascript:CardFantasy.Core.updateBattleOptions();');
     $('#play-dungeons-1-game-button').attr('href', 'javascript:CardFantasy.Core.playDungeonsGame(1);');
     $('#simulate-dungeons-1-game-button').attr('href', 'javascript:CardFantasy.Core.playDungeonsGame(-1);');
-    $('#play-dungeons-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playDungeonsGame(1000);');
+    $('#play-dungeons-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playDungeonsGame(500);');
     setBattleOptionsText(dungeonsBattleOptions, 'dungeons-battle-options-text');
 
     var showDungeonsVictoryCondition = function() {

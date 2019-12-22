@@ -12,7 +12,7 @@ public final class AllDelayDouble {
         List<CardInfo> selfHandCards = attacker.getOwner().getHand().toList();
         resolver.getStage().getUI().useSkill(attacker, allHandCards, skillUseInfo.getSkill(), true);
         resolver.getStage().getUI().useSkill(attacker, selfHandCards, skillUseInfo.getSkill(), true);
-        if (resolver.resolveStopDelay(defender)) {
+        if (!resolver.resolveStopDelay(defender)) {
             for (CardInfo card : allHandCards) {
                 if (resolver.resolveStopCardDelay(card)) {
                     continue;
@@ -22,7 +22,7 @@ public final class AllDelayDouble {
                 card.setSummonDelay(summonDelay + summonDelayOffset);
             }
         }
-        if (resolver.resolveStopDelay(attacker.getOwner())) {
+        if (!resolver.resolveStopDelay(attacker.getOwner())) {
             for (CardInfo card : selfHandCards) {
                 if (resolver.resolveStopCardDelay(card)) {
                     continue;

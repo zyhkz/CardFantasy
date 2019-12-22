@@ -68,10 +68,18 @@ public class LunarEclipse {
                 summonCardCandidates = DeckBuilder.build(summonedCardsDescs).getCardInfos(enemy);
                 for (CardInfo fieldCard : livingCards) {
                     if (fieldCard.getStatus().containsStatusCausedBy(skillUseInfo, CardStatusType.召唤)) {
-                        if(fieldCard.getRelationCardInfo()==attackCard)
-                        {
-                            summonNumber++;
+                        CardStatus status = fieldCard.getStatus();
+                        List<CardStatusItem> items = status.getStatusOf(CardStatusType.召唤);
+                        for(CardStatusItem cardStatusItem:status.getAllItems()){
+                            if(cardStatusItem.getCause().getOwner() == attackCard){
+                                summonNumber++;
+                            }
                         }
+                        // 晦月技能非常特殊和变身冲突
+//                        if(fieldCard.getRelationCardInfo()==attackCard)
+//                        {
+//                            summonNumber++;
+//                        }
                     }
                 }
                 if(summonNumber>=2)
@@ -87,7 +95,7 @@ public class LunarEclipse {
                     CardStatusItem weakStatusItem = CardStatusItem.weak(skillUseInfo);
                     resolver.getStage().getUI().addCardStatus(deadCard, summonedCard, skill, weakStatusItem);
                     summonedCard.addStatus(weakStatusItem);
-                    summonedCard.setRelationCardInfo(attackCard);
+//                    summonedCard.setRelationCardInfo(attackCard);
                     resolver.summonCard(summonedCard.getOwner(), summonedCard, deadCard, true, skill,1);
                 }
             }

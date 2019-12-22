@@ -4129,6 +4129,21 @@
         <Skill type="骤雨" level="10" unlock="5"  />
         <Skill type="乱箭破敌" level="0" unlock="10" />
     </Card>
+    <Card id="3656" name="钢铁巨犀" wikiId="" race="蛮荒" speed="3" star="4" cost="15" incrCost="2" at="420" hp="1490" incrAT="33" incrHP="40">
+        <Skill type="横冲直撞" level="0" unlock="0"  />
+        <Skill type="横扫" level="0" unlock="5"  />
+        <Skill type="不屈" level="0" unlock="10" />
+    </Card>
+    <Card id="3657" name="毒沼魔龙" wikiId="" race="蛮荒" speed="3" star="5" cost="19" incrCost="2" at="530" hp="1550" incrAT="40" incrHP="44">
+        <Skill type="魔龙诅咒" level="0" unlock="0"  />
+        <Skill type="毒物蔓延" level="0" unlock="5"  />
+        <Skill type="紊乱" level="0" unlock="10" />
+    </Card>
+    <Card id="3658" name="枫红少女" wikiId="" race="蛮荒" speed="3" star="4" cost="15" incrCost="2" at="410" hp="1325" incrAT="32" incrHP="35">
+        <Skill type="归魂" level="0" unlock="0"  summon="true"/>
+        <Skill type="雷霆一击" level="6" unlock="5"  summon="true"/>
+        <Skill type="游击" level="0" unlock="10" />
+    </Card>
 
 
 
@@ -5599,6 +5614,21 @@
         <Skill type="风力失控" level="0" unlock="0" />
         <Skill type="目标锁定" level="0" unlock="5" />
         <Skill type="追风利刃" level="0" unlock="10" />
+    </Card>
+    <Card id="4696" name="天公将军·张角" wikiId="" race="地狱" speed="3" star="5" cost="21" incrCost="2" at="615" hp="1600" incrAT="41" incrHP="52">
+        <Skill type="乱流" level="0" unlock="0" />
+        <Skill type="神鬼之术" level="0" unlock="5" />
+        <Skill type="黄天太平" level="0" unlock="10" />
+    </Card>
+    <Card id="4697" name="暗黑咒术师" wikiId="" race="地狱" speed="3" star="4" cost="15" incrCost="2" at="415" hp="1305" incrAT="30" incrHP="30">
+        <Skill type="暗黑咒术" level="0" unlock="0" />
+        <Skill type="黑之诅咒" level="0" unlock="5" />
+        <Skill type="神箭三重奏" level="10" unlock="10" />
+    </Card>
+    <Card id="4698" name="不灭孽骨" wikiId="" race="地狱" speed="3" star="5" cost="18" incrCost="2" at="485" hp="1500" incrAT="40" incrHP="43">
+        <Skill type="潜伏之力" level="0" unlock="0" />
+        <Skill type="舍命一击" level="0" unlock="5" />
+        <Skill type="涅盘" level="0" unlock="10" />
     </Card>
 
 

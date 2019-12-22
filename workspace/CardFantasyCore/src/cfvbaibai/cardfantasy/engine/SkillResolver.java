@@ -342,7 +342,7 @@ public class SkillResolver {
                 }
             }
             if (skillUseInfo.getType() == SkillType.透支 || skillUseInfo.getType() == SkillType.过载 || skillUseInfo.getType() == SkillType.勤学苦练
-                    || skillUseInfo.getType() == SkillType.三界行者|| skillUseInfo.getType() == SkillType.勤能补拙) {
+                    || skillUseInfo.getType() == SkillType.三界行者|| skillUseInfo.getType() == SkillType.勤能补拙 || skillUseInfo.getType() == SkillType.舍命一击) {
                 Overdraw.apply(this, skillUseInfo, attacker);
             } else if (skillUseInfo.getType() == SkillType.力竭) {
                 Exhausted.apply(this, skillUseInfo, attacker);
@@ -446,7 +446,7 @@ public class SkillResolver {
             } else if (skillUseInfo.getType() == SkillType.鬼才) {
                 SoulControl.apply(this, skillUseInfo.getAttachedUseInfo2(), attacker, defender);
             } else if (skillUseInfo.getType() == SkillType.背刺 || skillUseInfo.getType() == SkillType.大背刺 || skillUseInfo.getType() == SkillType.突击
-                    || skillUseInfo.getType() == SkillType.闪耀突击 || skillUseInfo.getType() == SkillType.深海之力) {
+                    || skillUseInfo.getType() == SkillType.闪耀突击 || skillUseInfo.getType() == SkillType.深海之力 || skillUseInfo.getType() == SkillType.潜伏之力) {
                 BackStab.apply(this, skillUseInfo, attacker);
             } else if (skillUseInfo.getType() == SkillType.群体削弱 || skillUseInfo.getType() == SkillType.霸王之姿 || skillUseInfo.getType() == SkillType.喋喋不休
                     || skillUseInfo.getType() == SkillType.威吓) {
@@ -823,7 +823,7 @@ public class SkillResolver {
                 Insane.apply(skillUseInfo, this, attacker, defender, 3, 100);
             } else if (skillUseInfo.getType() == SkillType.铁骑破阵) {
                 Insane.apply(skillUseInfo, this, attacker, defender, 3, 200);
-            } else if (skillUseInfo.getType() == SkillType.骚乱) {
+            } else if (skillUseInfo.getType() == SkillType.骚乱 || skillUseInfo.getType() == SkillType.横冲直撞) {
                 Insane.apply(skillUseInfo, this, attacker, defender, 3, 150);
             } else if (skillUseInfo.getType() == SkillType.癫狂之舞) {
                 Insane.apply(skillUseInfo, this, attacker, defender, 1, 150);
@@ -1099,7 +1099,7 @@ public class SkillResolver {
                 Crumbling.apply(this, skillUseInfo.getSkill(), attacker, defender, 1, 1);
             } else if (skillUseInfo.getType() == SkillType.咒怨) {
                 Grudge.apply(this, skillUseInfo, attacker, defender, 2);
-            } else if (skillUseInfo.getType() == SkillType.白衣渡江) {
+            } else if (skillUseInfo.getType() == SkillType.白衣渡江 || skillUseInfo.getType() == SkillType.魔龙诅咒 || skillUseInfo.getType() == SkillType.暗黑咒术) {
                 Grudge.apply(this, skillUseInfo, attacker, defender, 1);
             } else if (skillUseInfo.getType() == SkillType.帝国光辉) {
                 Bless.apply(skillUseInfo.getAttachedUseInfo1().getSkill(), this, attacker);
@@ -1343,6 +1343,25 @@ public class SkillResolver {
                 Snipe.apply(skillUseInfo, skillUseInfo.getSkill(), this, attacker, defender, 2);
             } else if (skillUseInfo.getType() == SkillType.风力失控) {
                 AllDelayDouble.apply(skillUseInfo, this, attacker, defender);
+            } else if (skillUseInfo.getType() == SkillType.乱流) {
+                Turbulence.apply(skillUseInfo.getSkill(), this, attacker, defender,35,35);
+            } else if (skillUseInfo.getType() == SkillType.神鬼之术) {
+                if(defender.getGrave().size()>=2) {
+                    MagicMark.apply(this, skillUseInfo.getAttachedUseInfo1(), attacker, defender, -1);
+                }else{
+                    Grudge.apply(this, skillUseInfo.getAttachedUseInfo2(), attacker, defender, 1);
+                }
+                ThunderStrike.apply(skillUseInfo, this, attacker, defender, 5);
+            } else if (skillUseInfo.getType() == SkillType.黄天太平) {
+                if(attacker.getOwner().getGrave().size()>=1) {
+                    RegressionSoul.apply(this, skillUseInfo.getAttachedUseInfo1(), attacker, defender);
+                }else{
+                    Horn.apply(skillUseInfo.getAttachedUseInfo2(), this, attacker);
+                }
+            } else if (skillUseInfo.getType() == SkillType.黑之诅咒) {
+                DeathMarkMult.apply(this, skillUseInfo, attacker, defender, 3,1);
+            } else if (skillUseInfo.getType() == SkillType.毒物蔓延) {
+                PoisonMagic.apply(skillUseInfo, this, attacker, defender, -1);
             }
         }
         if (!attacker.isDead() && status == 0) {
@@ -1350,7 +1369,7 @@ public class SkillResolver {
                 if (skillUseInfo.getType() == SkillType.连续魔法 || skillUseInfo.getType() == SkillType.黄天当立 || skillUseInfo.getType() == SkillType.连奏
                         || skillUseInfo.getType() == SkillType.神性爆发 || skillUseInfo.getType() == SkillType.时光迁跃
                         || attacker.containsAllSkill(SkillType.我们生命中的时光)
-                        || skillUseInfo.getType() == SkillType.法天象地) {
+                        || skillUseInfo.getType() == SkillType.法天象地 || skillUseInfo.getType() == SkillType.黄天太平) {
                     if(doomSkillMessgae(message,skillUseInfo,doomImpact)){
                         break;
                     }
@@ -1786,7 +1805,7 @@ public class SkillResolver {
                                 || blockSkillUseInfo.getType() == SkillType.神兵天降 || blockSkillUseInfo.getType() == SkillType.沉默领域 || blockSkillUseInfo.getType() == SkillType.贪狼
                                 || blockSkillUseInfo.getType() == SkillType.逆战 || blockSkillUseInfo.getType() == SkillType.三昧真火 || blockSkillUseInfo.getType() == SkillType.周旋
                                 || blockSkillUseInfo.getType() == SkillType.吴之悌 || blockSkillUseInfo.getType() == SkillType.吴之恋 || blockSkillUseInfo.getType() == SkillType.白驹过隙
-                                || blockSkillUseInfo.getType() == SkillType.拉莱耶领域) {
+                                || blockSkillUseInfo.getType() == SkillType.拉莱耶领域 || blockSkillUseInfo.getType() == SkillType.太平清领书) {
                             if (Immue.isSkillBlocked(this, blockSkillUseInfo.getSkill(), attackSkill, attacker, defender)) {
                                 result.setAttackable(false);
                                 return result;
@@ -2122,6 +2141,8 @@ public class SkillResolver {
                 // IMPORTANT: Unbending card cannot trigger 自爆
                 if (deadCardSkillUseInfo.getType() == SkillType.自爆 && !result.unbending) {
                     Explode.apply(this, deadCardSkillUseInfo.getSkill(), killerCard, deadCard);
+                }else if(deadCardSkillUseInfo.getType() == SkillType.舍命一击 && !result.unbending) {
+                    Explode.apply(this, deadCardSkillUseInfo.getAttachedUseInfo1().getSkill(), killerCard, deadCard);
                 } else if (deadCardSkillUseInfo.getType() == SkillType.匹夫之勇 && !result.unbending) {
                     Explode.apply(this, deadCardSkillUseInfo.getSkill(), killerCard, deadCard);
                     HandCardAddOneSkill.apply(this, deadCardSkillUseInfo, deadCard, deadCardSkillUseInfo.getSkill());
@@ -2865,7 +2886,8 @@ public class SkillResolver {
                 CriticalAttack.remove(this, effect.getCause(), card);
             } else if (type == SkillType.穷追猛打 || type == SkillType.灵击 || type == SkillType.死亡践踏) {
                 Pursuit.remove(this, effect.getCause(), card);
-            } else if (type == SkillType.背刺 || type == SkillType.大背刺 || type == SkillType.深海之力 || type == SkillType.闪耀突击 || type == SkillType.突击) {
+            } else if (type == SkillType.背刺 || type == SkillType.大背刺 || type == SkillType.深海之力 || type == SkillType.闪耀突击 || type == SkillType.突击
+                    || type == SkillType.潜伏之力) {
                 BackStab.remove(this, effect.getCause(), card);
             } else if (type == SkillType.战意 || type == SkillType.鬼王之怒 || type == SkillType.大江山鬼王 || type == SkillType.正义追击
                     || type == SkillType.战神 || type == SkillType.一夫之勇) {
@@ -2983,6 +3005,9 @@ public class SkillResolver {
                         result.unbending = UnbendingAwaken.apply(skillUseInfo, this, defender);
                     } else if (skillUseInfo.getType() == SkillType.战团之魂) {
                         result.unbending = UnbendingAwaken.applyMore(skillUseInfo, this, defender);
+                    } else if (skillUseInfo.getType() == SkillType.太平清领书) {
+                        Player opponent = this.getStage().getOpponent(defender.getOwner());
+                        result.unbending = UnbendingAwaken.applyOpponentLess(skillUseInfo, this, defender, opponent);
                     } else if (skillUseInfo.getType() == SkillType.赤焰战场 || skillUseInfo.getType() == SkillType.独行) {
                         Player opponent = this.getStage().getOpponent(defender.getOwner());
                         result.unbending = UnbendingAwaken.applyLess(skillUseInfo, this, defender, opponent);
@@ -3106,7 +3131,8 @@ public class SkillResolver {
                                 break;
                             }
                             if (skillUseInfo.getType() == SkillType.扼杀 || skillUseInfo.getType() == SkillType.无双 || skillUseInfo.getType() == SkillType.双斩
-                                    || skillUseInfo.getType() == SkillType.淘汰 || skillUseInfo.getType() == SkillType.溶骨的毒酒 || skillUseInfo.getType() == SkillType.狂暴之刃) {
+                                    || skillUseInfo.getType() == SkillType.淘汰 || skillUseInfo.getType() == SkillType.溶骨的毒酒 || skillUseInfo.getType() == SkillType.狂暴之刃
+                                    || skillUseInfo.getType() == SkillType.潜伏之力) {
                                 this.getStage().getUI().useSkill(attacker, skillUseInfo.getSkill(), true);
                                 card.restoreOwner();
                                 owner.getOutField().addCard(card);
@@ -3971,6 +3997,8 @@ public class SkillResolver {
                     }
                 } else if (skillUseInfo.getType() == SkillType.自毁) {
                     AlchemyFailure.apply(this, skillUseInfo, skillUseInfo.getSkill(), card);
+                } else if (skillUseInfo.getType() == SkillType.雷霆一击) {
+                    ThunderStrike.apply(skillUseInfo, this, card, enemy, 3);
                 }
             } else if (!skillUseInfo.getSkill().isDeathSkill()) {
                 if (skillUseInfo.getType() == SkillType.反噬 || skillUseInfo.getType() == SkillType.恶魔契约) {
@@ -4774,7 +4802,7 @@ public class SkillResolver {
                             || blockSkillUseInfo.getType() == SkillType.神兵天降 || blockSkillUseInfo.getType() == SkillType.沉默领域 || blockSkillUseInfo.getType() == SkillType.贪狼
                             || blockSkillUseInfo.getType() == SkillType.逆战 || blockSkillUseInfo.getType() == SkillType.三昧真火 || blockSkillUseInfo.getType() == SkillType.周旋
                             || blockSkillUseInfo.getType() == SkillType.吴之悌 || blockSkillUseInfo.getType() == SkillType.吴之恋 || blockSkillUseInfo.getType() == SkillType.白驹过隙
-                            || blockSkillUseInfo.getType() == SkillType.拉莱耶领域) {
+                            || blockSkillUseInfo.getType() == SkillType.拉莱耶领域 || blockSkillUseInfo.getType() == SkillType.太平清领书) {
                         return true;
                     } else if (blockSkillUseInfo.getType() == SkillType.法力反射 ||
                             blockSkillUseInfo.getType() == SkillType.镜面装甲 ||
@@ -4808,7 +4836,7 @@ public class SkillResolver {
                             || blockSkillUseInfo.getType() == SkillType.神兵天降 || blockSkillUseInfo.getType() == SkillType.沉默领域 || blockSkillUseInfo.getType() == SkillType.贪狼
                             || blockSkillUseInfo.getType() == SkillType.逆战 || blockSkillUseInfo.getType() == SkillType.三昧真火 || blockSkillUseInfo.getType() == SkillType.周旋
                             || blockSkillUseInfo.getType() == SkillType.吴之悌 || blockSkillUseInfo.getType() == SkillType.吴之恋 || blockSkillUseInfo.getType() == SkillType.白驹过隙
-                            || blockSkillUseInfo.getType() == SkillType.拉莱耶领域) {
+                            || blockSkillUseInfo.getType() == SkillType.拉莱耶领域 || blockSkillUseInfo.getType() == SkillType.太平清领书) {
                         return true;
                     }
                 }
