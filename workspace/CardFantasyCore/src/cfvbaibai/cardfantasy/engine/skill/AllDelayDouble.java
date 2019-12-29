@@ -22,15 +22,13 @@ public final class AllDelayDouble {
                 card.setSummonDelay(summonDelay + summonDelayOffset);
             }
         }
-        if (!resolver.resolveStopDelay(attacker.getOwner())) {
-            for (CardInfo card : selfHandCards) {
-                if (resolver.resolveStopCardDelay(card)) {
-                    continue;
-                }
-                int summonDelay = card.getSummonDelay();
-                resolver.getStage().getUI().increaseSummonDelay(card, summonDelayOffset);
-                card.setSummonDelay(summonDelay + summonDelayOffset);
+        for (CardInfo card : selfHandCards) {
+            if (resolver.resolveStopCardDelay(card)) {
+                continue;
             }
+            int summonDelay = card.getSummonDelay();
+            resolver.getStage().getUI().increaseSummonDelay(card, summonDelayOffset);
+            card.setSummonDelay(summonDelay + summonDelayOffset);
         }
     }
 }

@@ -30,6 +30,8 @@ public final class AddFiledCardMultSkill {
             cardSkill1 = new CardSkill(addSkill1.getType(), addSkill1.getLevel(), 0, false, false, false, false);
             cardSkill2 = new CardSkill(addSkill2.getType(), addSkill2.getLevel(), 0, false, true, false, false);
             cardSkill3 = new CardSkill(addSkill3.getType(), addSkill3.getLevel(), 0, false, true, false, false);
+        }else if(skill.getType() == SkillType.不朽) {
+            cardSkill1 = new CardSkill(addSkill1.getType(), addSkill1.getLevel(), 0, false, false, false, false);
         }
         resolver.getStage().getUI().useSkill(card, skill, true);
         int victimCount = skill.getImpact();

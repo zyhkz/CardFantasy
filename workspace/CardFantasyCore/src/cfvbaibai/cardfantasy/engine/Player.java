@@ -30,6 +30,7 @@ public class Player extends EntityInfo {
     private List<SkillUseInfo>  counterAttackHero;//背水系列技能
     private List<SkillUseInfo>  impregnableDefenseHero;//铁壁系列技能
     private List<SkillUseInfo>  failureSkillUseInfoList;//腐化之地系列技能
+    private List<SkillUseInfo>  summonStopSkillUseInfoList;//降临禁止系列技能
     
     public Player(PlayerInfo playerInfo, StageInfo stage) {
         this.playerInfo = playerInfo;
@@ -49,6 +50,7 @@ public class Player extends EntityInfo {
         this.counterAttackHero = new ArrayList<SkillUseInfo>();
         this.impregnableDefenseHero = new ArrayList<SkillUseInfo>();
         this.failureSkillUseInfoList = new ArrayList<SkillUseInfo>();
+        this.summonStopSkillUseInfoList = new ArrayList<SkillUseInfo>();
         for (Skill cardBuff : playerInfo.getCardBuffs()) {
             this.cardBuffs.add(new SkillUseInfo(this, cardBuff));
         }
@@ -242,5 +244,24 @@ public class Player extends EntityInfo {
 
     public void removeFailureSkillUseInfoList(SkillUseInfo skillUseInfo) {
         this.failureSkillUseInfoList.remove(skillUseInfo);
+    }
+
+    public List<SkillUseInfo> getSummonStopSkillUseInfoList() {
+        return this.summonStopSkillUseInfoList;
+    }
+
+    public void addSummonStopSkillUseInfoList(SkillUseInfo skillUseInfo) {
+        for(SkillUseInfo addSkillUserInfo:this.summonStopSkillUseInfoList)
+        {
+            if(addSkillUserInfo == skillUseInfo)
+            {
+                throw new CardFantasyRuntimeException("skillUseInfo is reused");
+            }
+        }
+        this.summonStopSkillUseInfoList.add(skillUseInfo);
+    }
+
+    public void removeSummonStopSkillUseInfoList(SkillUseInfo skillUseInfo) {
+        this.summonStopSkillUseInfoList.remove(skillUseInfo);
     }
 }
