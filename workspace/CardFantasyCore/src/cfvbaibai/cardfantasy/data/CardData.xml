@@ -5650,6 +5650,12 @@
         <Skill type="免疫" level="0" unlock="5" />
         <Skill type="魔族之血" level="0" unlock="10" />
     </Card>
+    <Card id="4700" name="海拉" wikiId="" race="地狱" speed="3" star="5" cost="21" incrCost="2" at="600" hp="1650" incrAT="45" incrHP="47">
+        <Skill type="灵能腐朽" level="0" unlock="0" />
+        <Skill type="冥界之力" level="0" unlock="5" />
+        <Skill type="黑暗侵袭" level="0" unlock="10" />
+    </Card>
+
 
 
 
@@ -5968,6 +5974,12 @@
         <Skill type="神威" level="0" unlock="0" />
         <Skill type="全领域沉默" level="0" unlock="5" />
         <Skill type="反击屏障" level="0" unlock="10" />
+    </Card>
+    <Card id="5574" name="硕大毒汁怪" wikiId="" race="魔神" speed="2" star="5" cost="20" incrCost="0" at="2500" hp="5000" incrAT="0" incrHP="0">
+        <Skill type="我又回来了" level="0" unlock="0" />
+        <Skill type="死亡收割" level="0" unlock="5" />
+        <Skill type="英雄之敌" level="10" unlock="10" />
+        <Skill type="背水" level="0" unlock="10" />
     </Card>
 
     <!-- 魔神 -->
