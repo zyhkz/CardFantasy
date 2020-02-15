@@ -1870,9 +1870,9 @@ public enum SkillType {
         return this.tags.contains(tag);
     }
 
-    public boolean isGrowable() {
-        return this.impact3 != null || this.incrImpact != 0 || this.initImpact != 0;
-    }
+//    public boolean isGrowable() {
+//        return this.impact3 != null || this.incrImpact != 0 || this.initImpact != 0;
+//    }
 
     public SkillType getAttachedType1() {
         return attachedType1;
