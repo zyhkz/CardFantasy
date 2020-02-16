@@ -637,7 +637,7 @@ $(document)
     }
     $('#play-map-1-game-button').attr('href', 'javascript:CardFantasy.Core.playMapGame(1);');
     $('#simulate-map-1-game-button').attr('href', 'javascript:CardFantasy.Core.playMapGame(-1);');
-    $('#play-map-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playMapGame(1000);');
+    $('#play-map-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playMapGame(500);');
 
     var showVictoryCondition = function() {
         var map = getMap();
@@ -799,7 +799,7 @@ $(document)
     }
     $('#play-auto-1-game-button').attr('href', 'javascript:CardFantasy.Core.playAutoGame(1);');
     $('#simulate-auto-1-game-button').attr('href', 'javascript:CardFantasy.Core.playAutoGame(-1);');
-    $('#play-auto-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playAutoGame(1000);');
+    $('#play-auto-massive-game-button').attr('href', 'javascript:CardFantasy.Core.playAutoGame(500);');
     $('#show-arena-battle-options-button').attr('href', 'javascript:CardFantasy.Core.setBattleOptions(CardFantasy.Core.arenaBattleOptions, "arena-battle-options-text");');
     $('#update-battle-options-button').attr('href', 'javascript:CardFantasy.Core.updateBattleOptions();');
     setBattleOptionsText(arenaBattleOptions, 'arena-battle-options-text');
