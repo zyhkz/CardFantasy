@@ -5915,6 +5915,14 @@ public class SkillResolver {
                     if (enemy.getField().getAliveCards().size()>7) {
                        RedGunByDamnationEquipment.apply(equipmentSkillUserInfo, this, equipmentInfo, enemy, 3);
                     }
+                } else if (equipmentSkillUserInfo.getType() == SkillType.装备围攻) {
+                    if (stage.getRound() < 16) {
+                        NebulaChainByEquipment.apply(equipmentSkillUserInfo, this, equipmentInfo, enemy);
+                    }
+                } else if (equipmentSkillUserInfo.getType() == SkillType.装备恶魔重生) {
+                    if (enemy.getField().getAliveCards().size()>7) {
+                        AddFiledCardMultSkillByEquipment.apply(this, equipmentSkillUserInfo, equipmentInfo, equipmentSkillUserInfo.getAttachedUseInfo1().getSkill());
+                    }
                 }
 
             }
