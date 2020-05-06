@@ -3243,7 +3243,7 @@ public class SkillResolver {
                         Player opponent = this.getStage().getOpponent(defender.getOwner());
                         scapegoatType = DisorderMult.apply(skillUseInfo, this, defender, opponent, 1,0,1,attacker,skill);
                         scapegoat = true;
-                    } else if (skillUseInfo.getType() == SkillType.逆转之矢) {
+                    } else if (skillUseInfo.getType() == SkillType.逆转之矢 || skillUseInfo.getType() == SkillType.风雨无阻) {
                         Player opponent = this.getStage().getOpponent(defender.getOwner());
                         scapegoatType = DisorderMult.apply(skillUseInfo, this, defender, opponent, 1,1,9999,attacker,skill);
                         scapegoat = true;
@@ -5825,7 +5825,7 @@ public class SkillResolver {
             if (!attacker.isDead() && !attacker.isSilent() && !attacker.justRevived()) {
                 {
                     RuneInfo rune = attacker.getOwner().getActiveRuneOf(RuneData.破军);
-                    if (rune != null && !attacker.justRevived()) {
+                    if (rune != null && !attacker.justRevived()&&attacker.getRuneActive()) {
                         return DefeatArmy.isDefenSkillDisabled(this, rune.getSkill(), cardSkill, attacker, defender);
                     }
                 }

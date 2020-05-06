@@ -17,6 +17,7 @@ public final class Scapegoat {
 
         int number = skillUseInfo.getSkillNumber();
         if(number==0) {
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;
@@ -43,6 +44,7 @@ public final class Scapegoat {
         }
         List<CardInfo> defenderList = random.pickRandom(player.getField().getAliveCards(), 1, true, extraCard);
         if(defenderList.size()==0){
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;

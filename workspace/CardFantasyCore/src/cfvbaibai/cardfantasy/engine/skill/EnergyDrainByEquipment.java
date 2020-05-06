@@ -15,7 +15,7 @@ public final class EnergyDrainByEquipment {
         victims.add(attacker);
         int totalAttackWeakened = Weaken.weakenCardOfEnergyDrain(resolver, skillUseInfo, adjAT, defender, victims);
 
-        damage = -totalAttackWeakened;
+        damage -= totalAttackWeakened;
         return damage;
     }
 }

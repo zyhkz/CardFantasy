@@ -17,6 +17,7 @@ public final class Disorder {
 
         int number = skillUseInfo.getSkillNumber();
         if(number==0) {
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;
@@ -52,6 +53,7 @@ public final class Disorder {
         cardInfoList.addAll(defenderHero.getField().getAliveCards());
         List<CardInfo> effectCardList = random.pickRandom(cardInfoList, 1, true, extraCard);
         if(effectCardList.size()==0){
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;

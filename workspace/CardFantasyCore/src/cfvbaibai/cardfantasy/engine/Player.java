@@ -192,7 +192,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getCounterAttackHero() {
-        return this.counterAttackHero;
+        return new ArrayList<SkillUseInfo>(this.counterAttackHero);
     }
 
     public void addCounterAttackHero(SkillUseInfo skillUseInfo) {
@@ -211,7 +211,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getImpregnableDefenseHero() {
-        return this.impregnableDefenseHero;
+        return new ArrayList<SkillUseInfo>(this.impregnableDefenseHero);
     }
 
     public void addImpregnableDefenseHero(SkillUseInfo skillUseInfo) {
@@ -230,7 +230,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getFailureSkillUseInfoList() {
-        return this.failureSkillUseInfoList;
+        return new ArrayList<SkillUseInfo>(this.failureSkillUseInfoList);
     }
 
     public void addFailureSkillUseInfoList(SkillUseInfo skillUseInfo) {
@@ -249,7 +249,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getSummonStopSkillUseInfoList() {
-        return this.summonStopSkillUseInfoList;
+        return new ArrayList<SkillUseInfo>(this.summonStopSkillUseInfoList);
     }
 
     public void addSummonStopSkillUseInfoList(SkillUseInfo skillUseInfo) {
@@ -267,7 +267,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getSummonReturnSkillUseInfoList() {
-        return this.summonReturnSkillUseInfoList;
+        return new ArrayList<SkillUseInfo>(this.summonReturnSkillUseInfoList);
     }
 
     public void addSummonReturnSkillUseInfoList(SkillUseInfo skillUseInfo) {
@@ -285,7 +285,7 @@ public class Player extends EntityInfo {
     }
 
     public List<SkillUseInfo> getCardEndSkillUseInfoList() {
-        return this.cardEndSkillUseInfoList;
+        return new ArrayList<SkillUseInfo>(this.cardEndSkillUseInfoList);
     }
 
     public void addCardEndSkillUseInfoList(SkillUseInfo skillUseInfo) {

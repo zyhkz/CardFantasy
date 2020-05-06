@@ -1203,7 +1203,7 @@
         <Skill type="页游纯洁" level="0" unlock="10" />
     </Card>
     <Card id="1635" name="网页版预言者" wikiId="" race="王国" speed="3" star="5" cost="20" incrCost="5" at="415" hp="1250" incrAT="36" incrHP="30">
-        <Skill type="号角" level="0" unlock="0" summon="true"/>
+        <Skill type="号角" level="1" unlock="0" summon="true"/>
         <Skill type="不动" level="0" unlock="5" />
         <Skill type="炼金失败" level="0" unlock="10" />
     </Card>
@@ -1290,7 +1290,7 @@
         <Skill type="冰神附体" level="0" unlock="10" />
     </Card>
     <Card id="1652" name="中二少女" wikiId="" race="王国" speed="0" star="4" cost="15" incrCost="2" at="455" hp="1305" incrAT="34" incrHP="27">
-        <Skill type="号角" level="0" unlock="0" summon="true"/>
+        <Skill type="号角" level="1" unlock="0" summon="true"/>
         <Skill type="魔力法阵" level="10" unlock="5" />
         <Skill type="转生" level="5" unlock="10" />
     </Card>

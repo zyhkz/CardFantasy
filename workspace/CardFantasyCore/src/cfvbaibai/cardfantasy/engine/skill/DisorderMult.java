@@ -17,6 +17,7 @@ public final class DisorderMult {
         int impact2 = skillUseInfo.getSkill().getImpact2();
         int number = skillUseInfo.getSkillNumber();
         if(number==0) {
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;
@@ -54,6 +55,7 @@ public final class DisorderMult {
         }
         List<CardInfo> effectCardList = random.pickRandom(cardInfoList, killCount, true, extraCard);
         if(effectCardList.size()==0){
+            card.getOwner().getField().expelCard(card.getPosition());
             card.restoreOwner();
             card.getOwner().getBeforeDeath().addCard(card);
             return deadType;

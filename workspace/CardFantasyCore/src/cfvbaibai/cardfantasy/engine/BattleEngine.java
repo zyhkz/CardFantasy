@@ -569,7 +569,7 @@ public class BattleEngine {
         else {
              damagedResult = resolver.attackCard(myField.getCard(i), defender, null);
         }
-        if (myField.getCard(i) != null&&attackflag) {
+        if (damagedResult != null && damagedResult.originalDamage > 0 && myField.getCard(i) != null&&attackflag) {
             for (SkillUseInfo skillUseInfo : myField.getCard(i).getUsableNormalSkills()) {
                 if (skillUseInfo.getType() == SkillType.横扫 ||
                         skillUseInfo.getType() == SkillType.地裂劲 ||
@@ -629,7 +629,7 @@ public class BattleEngine {
                 }
             }
         }
-        if (myField.getCard(i) != null&&attackflag) {
+        if (damagedResult != null && damagedResult.originalDamage > 0 && myField.getCard(i) != null&&attackflag) {
             for (SkillUseInfo skillUseInfo : myField.getCard(i).getUsableNormalSkills()) {
                 if (skillUseInfo.getType() == SkillType.一文字 || skillUseInfo.getType() == SkillType.页游横扫千军
                         || skillUseInfo.getType() == SkillType.横扫千军 || skillUseInfo.getType() == SkillType.纷乱雪月花

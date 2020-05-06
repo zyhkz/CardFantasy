@@ -18,8 +18,8 @@ CardFantasy.Core = {};
 // OUTERMOST IIFE
 (function(Core) {
 
-// var tiebaUrl = 'http://tieba.baidu.com/f?kw=%E9%AD%94%E5%8D%A1%E5%B9%BB%E6%83%B3%E6%A8%A1%E6%8B%9F%E5%99%A8';
-    var tiebaUrl = 'http://tieba.baidu.com/f?kw=%C4%A7%BF%A8%BB%C3%CF%EB';
+var tiebaUrl = 'http://tieba.baidu.com/f?kw=%E9%AD%94%E5%8D%A1%E5%B9%BB%E6%83%B3%E6%A8%A1%E6%8B%9F%E5%99%A8';
+//     var tiebaUrl = 'http://tieba.baidu.com/f?kw=%C4%A7%BF%A8%BB%C3%CF%EB';
 Core.tiebaUrl = tiebaUrl;
     
 var goBackOrGoto = function(defaultUrl) {

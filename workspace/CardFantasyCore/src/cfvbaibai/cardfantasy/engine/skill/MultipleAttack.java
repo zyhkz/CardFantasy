@@ -40,9 +40,12 @@ public final class MultipleAttack {
                 List<CardInfo> victims = random.pickRandom(cardList, 1, true, null);
                 for (CardInfo card : victims) {
                     //   ui.useSkill(attacker,card,skill,true);
-                    resolver.attackCard(attacker, card, attackSkillUseInfo, damage, false);
+                    OnDamagedResult damagedResult = resolver.attackCard(attacker, card, attackSkillUseInfo, damage, false);
                     if (attacker.isDead()) {
                         break;
+                    }
+                    if(damagedResult == null || damagedResult.originalDamage <= 0 ){
+                        continue;
                     }
                     for (SkillUseInfo skillUseInfo : attacker.getUsableNormalSkills()) {
                         if (skillUseInfo.getType() == SkillType.横扫 ||
