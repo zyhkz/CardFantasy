@@ -363,6 +363,9 @@ public class BattleEngine {
             resolver.removeStatus(myField.getCard(i), CardStatusType.蛇影);
             resolver.removeStatus(myField.getCard(i), CardStatusType.扩散);
             resolver.resolveDebuff(myField.getCard(i), CardStatusType.远古);
+            resolver.resolveDebuff(myField.getCard(i), CardStatusType.海啸);
+            resolver.resolveDebuff(myField.getCard(i), CardStatusType.傀儡);
+            resolver.resolveDebuff(myField.getCard(i), CardStatusType.执念);
             resolver.resolveDebuff(myField.getCard(i), CardStatusType.咒怨);
             resolver.resolveDebuff(myField.getCard(i), CardStatusType.咒皿);
             resolver.resolveAddATDebuff(myField.getCard(i), CardStatusType.咒怨);
@@ -718,6 +721,7 @@ public class BattleEngine {
     }
 
     private Phase drawCard()throws HeroDieSignal {
+        this.stage.getResolver().guardGrave(this.getActivePlayer(), this.getInactivePlayer());
         this.stage.getResolver().activateIndentures(this.getActivePlayer(), this.getInactivePlayer());
         Collection<CardInfo> allHandCards = this.stage.getAllHandCards();
         for (CardInfo card : allHandCards) {

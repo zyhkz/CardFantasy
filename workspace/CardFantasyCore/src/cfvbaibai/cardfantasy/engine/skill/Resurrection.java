@@ -7,6 +7,7 @@ import cfvbaibai.cardfantasy.CardFantasyRuntimeException;
 import cfvbaibai.cardfantasy.GameUI;
 import cfvbaibai.cardfantasy.Randomizer;
 import cfvbaibai.cardfantasy.data.Skill;
+import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.CardInfo;
 import cfvbaibai.cardfantasy.engine.Player;
 import cfvbaibai.cardfantasy.engine.SkillResolver;
@@ -36,9 +37,11 @@ public final class Resurrection {
             return;
         }
         for (int i=0;i<=deadCards.size()-1&&i<=resurrectionCount-1;i++) {
-            if(deadCards.get(i)==resurrector&&!skillUseInfo.getSkill().isPostcastSkill()||deadCards.get(i).getIsDeathNow())
-            {
+            if(deadCards.get(i)==resurrector&&!skillUseInfo.getSkill().isPostcastSkill()||deadCards.get(i).getIsDeathNow()) {
                 resurrectionCount=resurrectionCount+1;
+                continue;
+            }
+            if(GuardGrave.apply(resolver,deadCards.get(i))){
                 continue;
             }
             ui.useSkill(resurrector, deadCards.get(i), skill, true);

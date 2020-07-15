@@ -8,7 +8,7 @@ import cfvbaibai.cardfantasy.engine.*;
 import java.util.List;
 
 public final class VampiricTouch {
-    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, CardInfo attacker, int normalAttackDamage) {
+    public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, CardInfo attacker, int normalAttackDamage,boolean isFixed) {
         if (attacker == null || normalAttackDamage <= 0) {
             return;
         }
@@ -22,7 +22,10 @@ public final class VampiricTouch {
         Skill skill = skillUseInfo.getSkill();
         Player player = attacker.getOwner();
         int impact = skill.getImpact();
-        int number = normalAttackDamage*impact/100;
+        int number = impact;
+        if(!isFixed) {
+            number = normalAttackDamage * impact / 100;
+        }
         int healHP = number;
         if (healHP + player.getHP() > player.getMaxHP()) {
             healHP = player.getMaxHP() - player.getHP();

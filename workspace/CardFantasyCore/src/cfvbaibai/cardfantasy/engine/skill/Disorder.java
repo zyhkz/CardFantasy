@@ -73,6 +73,7 @@ public final class Disorder {
             resolver.getStage().getUI().killCard(card, cardInfo,skill);
             resolver.killCard(card,cardInfo,skill);//杀死卡牌
         }
+        deadType = DeadType.FeignDead; //死亡类型设置为假死
         return deadType;
 
     }

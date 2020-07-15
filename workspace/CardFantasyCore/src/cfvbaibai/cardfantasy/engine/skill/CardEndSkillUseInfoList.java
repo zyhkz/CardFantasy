@@ -46,7 +46,7 @@ public final class CardEndSkillUseInfoList {
                     Ancient.apply(resolver, skillUseInfo, attacker, defender, 2, 1);
                 }
             }else if(skillUseInfo.getType() == SkillType.三花聚顶){
-                ThunderStrike.apply(skillUseInfo, resolver, attacker, defender, 3);
+                ThunderStrike.apply(skillUseInfo, resolver, attacker, defender, 3,75);
             }
         }
         for(SkillUseInfo deleteSkillUseInfo:deleteSkillUseInfoList){

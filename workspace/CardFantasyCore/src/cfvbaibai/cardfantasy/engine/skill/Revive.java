@@ -6,6 +6,7 @@ import java.util.List;
 import cfvbaibai.cardfantasy.CardFantasyRuntimeException;
 import cfvbaibai.cardfantasy.data.Skill;
 import cfvbaibai.cardfantasy.data.SkillTag;
+import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.CardInfo;
 import cfvbaibai.cardfantasy.engine.CardStatusItem;
 import cfvbaibai.cardfantasy.engine.SkillUseInfo;
@@ -34,10 +35,12 @@ public final class Revive {
         if(revivableCards.size()==1)
         {
             cardToRevive =revivableCards.get(0);
-        }
-        else {
+        } else {
             cardToRevive = resolver.getStage().getRandomizer().pickRandom(
                     revivableCards, 1, true, null).get(0);
+        }
+        if(GuardGrave.apply(resolver,cardToRevive)){
+            return;
         }
         resolver.getStage().getUI().useSkill(reviver, cardToRevive, skill, true);
         if (SoulSeal.soulSealed(resolver, reviver)) {

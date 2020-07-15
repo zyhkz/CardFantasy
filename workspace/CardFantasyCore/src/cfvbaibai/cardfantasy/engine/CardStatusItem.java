@@ -182,6 +182,10 @@ public class CardStatusItem {
         return new CardStatusItem(CardStatusType.海啸, 0, cause);
     }
 
+    public static CardStatusItem puppetSummon(SkillUseInfo cause) {
+        return new CardStatusItem(CardStatusType.傀儡, 0, cause);
+    }
+
     public static CardStatusItem ancient(int effect,SkillUseInfo cause) {
         return new CardStatusItem(CardStatusType.远古, effect, cause);
     }
@@ -204,6 +208,10 @@ public class CardStatusItem {
 
     public static CardStatusItem mouseGuard(SkillUseInfo cause) {
         return new CardStatusItem(CardStatusType.庚子, 0, cause);
+    }
+
+    public static CardStatusItem obsession(SkillUseInfo cause) {
+        return new CardStatusItem(CardStatusType.执念, 0, cause);
     }
 
     public static CardStatusItem Trumpet(SkillUseInfo cause) {

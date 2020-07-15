@@ -42,6 +42,9 @@ public final class HolyFire {
                     resolver.getStage().getUI().addCardStatus(victim, victim, skillUseInfo.getSkill(), item);
                     victim.addStatus(item);
                     return;
+                }else if(skillUseInfo.getType() == SkillType.守墓者){
+                    resolver.getStage().getUI().useSkill(victim,skillUseInfo.getSkill(),true);
+                    return;
                 }
             }
             ui.cardToOutField(defender, victim);

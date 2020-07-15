@@ -32,6 +32,9 @@ public final class ReviveMultiple {
             {
                 continue;
             }
+            if(GuardGrave.apply(resolver,cardToRevive)){
+                continue;
+            }
             resolver.getStage().getUI().useSkill(reviver, cardToRevive, skill, true);
             reviver.getOwner().getGrave().removeCard(cardToRevive);
             resolver.summonCard(reviver.getOwner(), cardToRevive, reviver, false, skill, 0);

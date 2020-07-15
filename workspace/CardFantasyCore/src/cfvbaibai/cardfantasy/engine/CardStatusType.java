@@ -42,6 +42,8 @@ public enum CardStatusType {
     石化(false, "石"),
     远古(false, "远"),
     海啸(false, "啸"),
+    傀儡(false, "儡"),
+    执念(false, "执"),
     厄运(false, "厄"),
     扩散(false, "扩"),
     子嗣(false, "嗣"),

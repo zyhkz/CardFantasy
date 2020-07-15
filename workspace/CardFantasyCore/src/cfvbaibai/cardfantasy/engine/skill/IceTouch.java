@@ -15,7 +15,7 @@ import cfvbaibai.cardfantasy.engine.SkillUseInfo;
 
 public final class IceTouch {
     public static void apply(SkillUseInfo skillUseInfo, SkillResolver resolver, EntityInfo attacker, Player defender,
-            int victimCount) throws HeroDieSignal {
+            int victimCount,int rate) throws HeroDieSignal {
         List<CardInfo> victims = resolver.getStage().getRandomizer().pickRandom(defender.getField().toList(),
                 victimCount, true, null);
         GameUI ui = resolver.getStage().getUI();
@@ -23,7 +23,6 @@ public final class IceTouch {
         ui.useSkill(attacker, victims, skill, true);
         int damage = skill.getImpact();
         int magnifier = skill.getImpact2();
-        int rate = skill.getImpact3();
         for (CardInfo victim : victims) {
             if (!resolver.resolveAttackBlockingSkills(attacker, victim, skillUseInfo.getSkill(), damage).isAttackable()) {
                 continue;

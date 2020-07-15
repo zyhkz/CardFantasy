@@ -6,6 +6,7 @@ import cfvbaibai.cardfantasy.CardFantasyRuntimeException;
 import cfvbaibai.cardfantasy.GameUI;
 import cfvbaibai.cardfantasy.Randomizer;
 import cfvbaibai.cardfantasy.data.Skill;
+import cfvbaibai.cardfantasy.data.SkillType;
 import cfvbaibai.cardfantasy.engine.*;
 
 public final class RegressionSoul {
@@ -35,6 +36,9 @@ public final class RegressionSoul {
         GameUI ui = resolver.getStage().getUI();
         ui.useSkill(resurrector, cardsToResurrect, skill, true);
         for (CardInfo card : cardsToResurrect) {
+            if(GuardGrave.apply(resolver,card)){
+                continue;
+            }
             Hand hand = player.getHand();
             if (hand.isFull()||card.getIsDeathNow()) {
 

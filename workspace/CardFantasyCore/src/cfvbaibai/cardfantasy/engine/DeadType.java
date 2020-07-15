@@ -6,4 +6,5 @@ public enum DeadType {
     SoulCrushed,        // Killed with 扼杀 or 无双
     SoulControlDead,        //夺魂死亡
     PhantomDiminished,  // 召唤物死亡
+    FeignDead //假死
 }

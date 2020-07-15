@@ -63,6 +63,7 @@ public final class Scapegoat {
             resolver.getStage().getUI().killCard(card, cardInfo,skill);
             resolver.killCard(card,cardInfo,skill);//杀死己方卡牌
         }
+        deadType = DeadType.FeignDead; //死亡类型设置为假死
         return deadType;
 
     }

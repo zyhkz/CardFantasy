@@ -6,16 +6,14 @@ import cfvbaibai.cardfantasy.engine.*;
 
 public final class SelfDoubleBuff {
     public static void apply(SkillResolver resolver, SkillUseInfo skillUseInfo, CardInfo card,
-            int attackMaxNumber) {
+                             int attackNumber, int attackMaxNumber) {
         if (card == null) {
             throw new CardFantasyRuntimeException("card cannot be null");
         }
         Skill skill = skillUseInfo.getSkill();
         int impact = skill.getImpact();
         int impact2 = skill.getImpact();
-        int impact3 = skill.getImpact3();
         int number = impact;
-        int attackNumber = impact3;
         if(skillUseInfo.getSkillNumber()==-1) {
             skillUseInfo.setSkillNumber(1);
         }else {

@@ -42,6 +42,12 @@
             <div data-role="collapsible" data-collapsed="false" data-mini="true">
                 <h3>更新日志</h3>
                 <ul class="news-content">
+                    <li>2020-07-15<x>欢笑，波波</x><ul>
+                        <li>修复【雪影分身】，【替身术】，【烈火攻心】等技能bug</li>
+                        <li>更新卡牌【牛郎织女】，【五月的甜梦】，【南山唤龙】，【深渊飞龙】，【暗匿之影】，【迷雾之森】，
+                            【病毒终结】，【徒壁幼龙】，【火焰傀儡】，【荒原翼龙】，【妖火魔女】，【蝙蝠恶魔】，【毁灭巨龙】，
+                            【炼狱魔龙】， 感谢<a href="https://space.bilibili.com/298287092?spm_id_from=333.788.b_765f7570696e666f.2" target="_blank">泰尔诺奇</a>提供的帮助</li>
+                    </ul></li>
                     <li>2020-05-04<x>欢笑，波波</x><ul>
                         <li>修复卡牌死亡导致技能【三花聚顶】异常结算问题，感谢<a href="" target="_blank">垃圾毅</a>提供的帮助</li>
                         <li>修复【破军】符文重整以后继续发动的问题，修复【紊乱】未发动时，无法移除卡牌的问题，感谢<a href="" target="_blank">耗儿</a>提供的帮助</li>
