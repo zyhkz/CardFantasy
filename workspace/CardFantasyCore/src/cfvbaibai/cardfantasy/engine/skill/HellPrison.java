@@ -49,6 +49,8 @@ public final class HellPrison {
                         resolver.getStage().getUI().increaseSummonDelay(card, skillUseInfo.getSkill().getImpact2());
                         card.setSummonDelay(summonDelay + skillUseInfo.getSkill().getImpact2());
                     }
+                } else if(skillUseInfo.getSkill().getType()==SkillType.寒冬凝滞) {
+                    OneDelay.apply(skillUseInfo, resolver, attackerCard, defender);
                 } else if(skillUseInfo.getSkill().getType()==SkillType.血祭禁术){
                     Skill addSkill = skillUseInfo.getAttachedUseInfo1().getSkill();
                     CardSkill cardSkill = new CardSkill(addSkill.getType(), addSkill.getLevel(), 0, false, false, false, false);

@@ -413,7 +413,7 @@ public class SkillResolver {
                 Enprison.apply(this, skillUseInfo.getSkill(), attacker, defender);
             } else if (skillUseInfo.getType() == SkillType.吐槽) {
                 Tsukomi.apply(this, skillUseInfo.getSkill(), attacker, defender);
-            } else if (skillUseInfo.getType() == SkillType.火球) {
+            } else if (skillUseInfo.getType() == SkillType.火球 || skillUseInfo.getType() == SkillType.炽焰) {
                 FireMagic.apply(skillUseInfo.getSkill(), this, attacker, defender, 1);
             } else if (skillUseInfo.getType() == SkillType.八重红彼岸 || skillUseInfo.getType() == SkillType.浩劫
                     || skillUseInfo.getType() == SkillType.谜之水枪
@@ -423,6 +423,8 @@ public class SkillResolver {
                 GreatFireMagic.apply(skillUseInfo.getSkill(), this, attacker, defender, -1, false);
             } else if (skillUseInfo.getType() == SkillType.奥术湮灭) {
                 GreatFireMagic.apply(skillUseInfo.getSkill(), this, attacker, defender, 2, false);
+            } else if (skillUseInfo.getType() == SkillType.阳炎惩戒) {
+                GreatFireMagic.apply(skillUseInfo.getSkill(), this, attacker, defender, 3, false);
             } else if (skillUseInfo.getType() == SkillType.火墙) {
                 FireMagic.apply(skillUseInfo.getSkill(), this, attacker, defender, 3);
             } else if (skillUseInfo.getType() == SkillType.烈焰风暴) {
@@ -749,6 +751,9 @@ public class SkillResolver {
             } else if (skillUseInfo.getType() == SkillType.吴国英魂) {
                 AddCard.apply(this, skillUseInfo, attacker, SummonType.Summoning, 1,
                         "三国英魂大乔", "三国英魂仲谋", "三国英魂子敬", "三国英魂伯言", "三国英魂子义");
+            } else if (skillUseInfo.getType() == SkillType.四季之歌) {
+                AddCard.apply(this, skillUseInfo, attacker, SummonType.Summoning, 1,
+                        "春樱魅影", "夏弦胡琴", "秋枫剑士", "冬日恋歌");
             } else if (skillUseInfo.getType() == SkillType.繁星) {
                 Summon.apply(this, skillUseInfo, attacker, SummonType.Random, 1,
                         "月亮女神", "复活节兔女郎", "银河圣剑使", "世界树之灵");
@@ -892,6 +897,8 @@ public class SkillResolver {
                     || skillUseInfo.getType() == SkillType.火焰呼吸 || skillUseInfo.getType() == SkillType.妖火降世) {
                 GreatFireMagic.apply(skillUseInfo.getAttachedUseInfo1().getSkill(), this, attacker, defender, -1, true);
                 BurningFlame.apply(skillUseInfo.getAttachedUseInfo2(), this, attacker, defender, -1);
+            } else if (skillUseInfo.getType() == SkillType.盛夏流火) {
+                HotSummerFire.apply(skillUseInfo, this, attacker, defender, 3);
             } else if (skillUseInfo.getType() == SkillType.浴火) {
                 GreatFireMagic.apply(skillUseInfo.getAttachedUseInfo1().getAttachedUseInfo1().getSkill(), this, attacker, defender, -1, true);
                 BurningFlame.apply(skillUseInfo.getAttachedUseInfo1().getAttachedUseInfo2(), this, attacker, defender, -1);
@@ -1542,6 +1549,11 @@ public class SkillResolver {
             } else if (skillUseInfo.getType() == SkillType.毁灭之力) {
                 HalfSilence.apply(this, skillUseInfo.getAttachedUseInfo1(), attacker, defender);
                 UnderworldCall.apply(this, skillUseInfo.getSkill(), attacker, defender, 4);
+            } else if (skillUseInfo.getType() == SkillType.新月召唤) {
+                Summon.apply(this, skillUseInfo, attacker, SummonType.Random, 1,
+                        "炙火赤蛇", "水晶法师", "古木游龙", "焦土领主", "怒涛金鹰");
+            } else if (skillUseInfo.getType() == SkillType.秋枫浸染) {
+                BloodThirsty.apply(this, skillUseInfo, attacker, 1);
             }
         }
         if (!attacker.isDead() && status == 0) {
@@ -4113,7 +4125,7 @@ public class SkillResolver {
                         RacialBuff.apply(this, skillUseInfo, fieldCard, Race.HELL, SkillEffectType.MAXHP_CHANGE);
                     } else if (skillUseInfo.getType() == SkillType.本源之力) {
                         RacialBuff.apply(this, skillUseInfo, fieldCard, null, SkillEffectType.ATTACK_CHANGE);
-                    } else if (skillUseInfo.getType() == SkillType.本源守护 || skillUseInfo.getType() == SkillType.乐善好施) {
+                    } else if (skillUseInfo.getType() == SkillType.本源守护 || skillUseInfo.getType() == SkillType.乐善好施 || skillUseInfo.getType() == SkillType.春意盎然) {
                         RacialBuff.apply(this, skillUseInfo, fieldCard, null, SkillEffectType.MAXHP_CHANGE);
                     } else if (skillUseInfo.getType() == SkillType.根源之力 || skillUseInfo.getType() == SkillType.战争狂热) {
                         TogetherBuff.apply(this, skillUseInfo, fieldCard, null);
@@ -4255,6 +4267,8 @@ public class SkillResolver {
                     IceMagic.apply(skillUseInfo, this, card, enemy, -1, 50, 120 * enemy.getField().getAliveCards().size());
                 } else if (skillUseInfo.getType() == SkillType.寒冰触碰) {
                     IceTouch.apply(skillUseInfo, this, card, enemy, 3,50);
+                } else if (skillUseInfo.getType() == SkillType.霜冻冲击) {
+                    IceTouch.apply(skillUseInfo, this, card, enemy, 1,35);
                 } else if (skillUseInfo.getType() == SkillType.审判之剑) {
                     IceTouch.apply(skillUseInfo, this, card, enemy, 3,70);
                 } else if (skillUseInfo.getType() == SkillType.圣炎 || skillUseInfo.getType() == SkillType.热血战士) {
@@ -5621,7 +5635,7 @@ public class SkillResolver {
                 RacialBuff.remove(this, deadCardSkillUseInfo, card, Race.HELL);
             } else if (deadCardSkillUseInfo.getType() == SkillType.本源之力) {
                 RacialBuff.remove(this, deadCardSkillUseInfo, card, null);
-            } else if (deadCardSkillUseInfo.getType() == SkillType.本源守护 || deadCardSkillUseInfo.getType() == SkillType.乐善好施) {
+            } else if (deadCardSkillUseInfo.getType() == SkillType.本源守护 || deadCardSkillUseInfo.getType() == SkillType.乐善好施 || deadCardSkillUseInfo.getType() == SkillType.春意盎然) {
                 RacialBuff.remove(this, deadCardSkillUseInfo, card, null);
             } else if (deadCardSkillUseInfo.getType() == SkillType.根源之力 || deadCardSkillUseInfo.getType() == SkillType.战争狂热) {
                 TogetherBuff.remove(this, deadCardSkillUseInfo, card, null);

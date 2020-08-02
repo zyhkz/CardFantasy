@@ -64,6 +64,7 @@ public enum SkillType {
     勤学苦练(150, 0, SkillTag.永久, SkillTag.基础攻击加成),
     修罗道(1600, 0,600,0, SkillTag.永久, SkillTag.基础攻击加成),
     贪吃(100, 20, SkillTag.永久, SkillTag.基础攻击加成),
+    秋枫浸染(180, 0, SkillTag.永久, SkillTag.基础攻击加成),
     邪灵汲取(0, 3, SkillTag.抗免疫, SkillTag.永久, SkillTag.基础攻击加成, SkillTag.抗不屈),
     战意侵蚀(0, 24, SkillTag.抗免疫, SkillTag.永久, SkillTag.基础攻击加成, SkillTag.抗不屈),
     能量汲取(40, 0, SkillTag.抗免疫, SkillTag.永久, SkillTag.基础攻击加成, SkillTag.抗不屈),
@@ -138,6 +139,7 @@ public enum SkillType {
     地狱守护(50,SkillTag.抗毒刃),
     森林守护(50,SkillTag.抗毒刃),
     本源守护(40,SkillTag.抗毒刃),
+    春意盎然(500,0,SkillTag.抗毒刃),
     神圣守护(50,SkillTag.抗毒刃),
     生命符文(5,SkillTag.抗毒刃),
     坚壁(10,SkillTag.抗毒刃),
@@ -192,6 +194,7 @@ public enum SkillType {
     妖火焚烧(2000,0),
 
     火球(25, SkillTag.魔法),
+    炽焰(100,100, SkillTag.魔法),
     火墙(25, SkillTag.魔法),
     烈焰风暴(25, SkillTag.魔法),
     烈火攻心(800,0,800,0, SkillTag.魔法,SkillTag.法术扼杀),
@@ -214,6 +217,7 @@ public enum SkillType {
     凰火(300,0,700,0, SkillTag.魔法),
     凰鸣(1200,0),
     烈火(400,0,700,0, SkillTag.魔法),
+    夏火(100,0,300,0, SkillTag.魔法),
     呼吸火焰(400,0,800,0, SkillTag.魔法),
     天命判决(1,0,3000,0, SkillTag.魔法,SkillTag.法术扼杀,SkillTag.魔王无效),
     病情加重(50, 0, 100, 0, SkillTag.魔法),
@@ -237,6 +241,7 @@ public enum SkillType {
     贪魔伐罪(700,0,1200,0, SkillTag.魔法,SkillTag.法术扼杀),
     炼魔枪(600,0,1200,0, SkillTag.魔法,SkillTag.法术扼杀),
     炼狱魔枪(65,0,SkillType.炼魔枪,0,null,0),
+    阳炎惩戒(800,0,1200,0, SkillTag.魔法,SkillTag.法术扼杀),
 
     狙击(0, 0,0,25, SkillTag.抗免疫, SkillTag.狙击),
     处罚(0, 0, 1000,0, SkillTag.抗免疫, SkillTag.狙击),
@@ -714,6 +719,7 @@ public enum SkillType {
     异元干扰(2, 0),
     古神呼唤(2, 0),
     辞旧迎新(1, 0,SkillTag.抗沉默),
+    寒冬凝滞(2, 0),
 
     诈降(1, 0),
 
@@ -780,6 +786,7 @@ public enum SkillType {
     风暴汇集(250, 0, 5, 0, SkillTag.抗免疫),
     冰之魔枪(450, 0, 3, 0, SkillTag.抗免疫),
     寒霜拳(777, 0, 3, 0, SkillTag.抗免疫),
+    霜冻冲击(300, 0, 3, 0, SkillTag.抗免疫),
     审判之剑(500, 0,  3, 0, SkillTag.抗免疫),
     页游极寒冲击(500, 0, 2, 0, SkillTag.抗免疫),
     踢雪(600, 0, 3, 0, SkillTag.抗免疫),
@@ -986,6 +993,7 @@ public enum SkillType {
     恶魔之门(0,0,SkillTag.召唤),
     刀魂附体(0,0,SkillTag.召唤),
     神兽降世(0,0,SkillTag.召唤),
+    新月召唤(0,0,SkillTag.召唤),
 
     召唤酒吞(0,0,SkillTag.召唤),
     召唤雪女(0,0,SkillTag.召唤),
@@ -1050,6 +1058,7 @@ public enum SkillType {
     替身术(1, 0,SkillType.复制,0,null,0,SkillTag.抗夺魂),
     戍边(1,0,SkillType.复制,0,null,0,SkillTag.抗夺魂),
     妙笔生花(1, 0,SkillTag.抗夺魂),
+    四季之歌(2, 0,SkillTag.抗夺魂),
 
     圣光洗礼(0, 0, SkillTag.抗免疫, SkillTag.魔王无效, SkillTag.魔族天赋),
     森林沐浴(1, 0, SkillTag.抗免疫, SkillTag.魔王无效, SkillTag.魔族天赋),
@@ -1174,6 +1183,7 @@ public enum SkillType {
     纯质流火(SkillType.流火,0,SkillType.天火,6),
     火焰呼吸(SkillType.呼吸火焰,0,SkillType.天火,9),
     烈火冲击(SkillType.烈火,0,SkillType.天火,1),
+    盛夏流火(SkillType.夏火,0,SkillType.天火,7),
     噬血狂袭(2500,0,SkillType.终极天谴,0,SkillType.终极祈祷,0),
     戾气诅咒(1500,0),
     王牌狙击(SkillType.完美狙击,0,SkillType.精准狙击,0),
